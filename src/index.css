@@ -4,4 +4,11 @@
 
 .active{
     background-color: #2AADDB;
+    
+}
+
+.backimage{
+    background: url('./image/pexels-pavel-danilyuk-7944065.jpg') rgba(42, 173, 219, 0.64);
+    background-size: cover;
+    background-blend-mode: multiply;
 }
