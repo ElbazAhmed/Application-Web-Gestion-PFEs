@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Link } from 'react-router-link';
+import SideBare from './componenet/SideBare';
+import { Routes,Route,BrowserRouter } from 'react-router-dom';
+import AddPFE from './pages/AddPFE';
+import ListPFE from './pages/ListPFE';
+import MonPFE from './pages/MonPFE';
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <SideBare>
+        <Routes>
+          <Route path="/" element={<ListPFE/>} />
+          <Route path="/addPfe" element={<AddPFE/>} />
+          <Route path="/myPfe" element={<MonPFE/>} />
+        </Routes>
+      </SideBare>
+    </BrowserRouter>
   );
 }
 
