@@ -16,8 +16,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border:1px;
-    border-color:red;
+    border:1px solid red;
 }
 ul{
     list-style: none;
