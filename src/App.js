@@ -12,24 +12,24 @@ import Home from '../src/componenet/Home/Home'
 function App() {
   
   return (
-    // <BrowserRouter>
-    //   <SideBare>
-    //     <Routes>
-    //       <Route path="/" element={<ListPFE/>} />
-    //       <Route path="/addPfe" element={<AddPFE/>} />
-    //       <Route path="/myPfe" element={<MonPFE/>} />
-    //     </Routes>
-    //   </SideBare>
-    // </BrowserRouter>
-
-    <>
     <BrowserRouter>
-	    <Routes>
-		    <Route index patch='/' element={<Home/>} /> 
-		    <Route patch='Registre' element={<Registre/>} /> 
-	    </Routes>
+      <SideBare>
+        <Routes>
+          <Route path="/" element={<ListPFE/>} />
+          <Route path="/addPfe" element={<AddPFE/>} />
+          <Route path="/myPfe" element={<MonPFE/>} />
+        </Routes>
+      </SideBare>
     </BrowserRouter>
-    </>
+
+    // <>
+    // <BrowserRouter>
+	  //   <Routes>
+		//     <Route index patch='/' element={<Home/>} /> 
+		//     <Route patch='Registre' element={<Registre/>} /> 
+	  //   </Routes>
+    // </BrowserRouter>
+    // </>
   );
 }
 
