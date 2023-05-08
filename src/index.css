@@ -12,3 +12,26 @@
     background-size: cover;
     background-blend-mode: multiply;
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border:1px;
+    border-color:red;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.Container{
+    padding-left:40px;
+    padding-right:40px;
+    margin:0 auto ;
+}
