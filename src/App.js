@@ -7,6 +7,7 @@ import ListPFE from './pages/ListPFE';
 import MonPFE from './pages/MonPFE';
 import Registre from './registrationPage/Registre';
 import Home from '../src/componenet/Home/Home'
+import Pfe from './pages/Pfe';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<ListPFE/>} />
           <Route path="/addPfe" element={<AddPFE/>} />
           <Route path="/myPfe" element={<MonPFE/>} />
+          <Route path='/pfe' element={<Pfe/>} />
         </Routes>
       </SideBare>
     </BrowserRouter>

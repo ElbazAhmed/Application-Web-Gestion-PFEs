@@ -2,6 +2,8 @@ import React from 'react'
 import Header from '../componenet/Header'
 import {TbSearch} from 'react-icons/tb'
 import CartPfe from '../componenet/CartPfe'
+import { Link } from 'react-router-dom'
+
 
 function ListPFE() {
   return (
@@ -19,15 +21,14 @@ function ListPFE() {
         <h2 className='font-medium text-xl'>Vos offres :</h2>
         <div className='w-[70%] mx-auto border-2 border-black rounded-md h-[30rem] overflow-scroll scrollbar scrollbar-thumb-sky-500 scrollbar-thin'>
           {/* componenet */}
+          <Link to={'/pfe'}>
+            <CartPfe/>
+          </Link>
           <CartPfe/>
           <CartPfe/>
           <CartPfe/>
           <CartPfe/>
-          <CartPfe/>
-          <CartPfe/>
-          <CartPfe/>
-          <CartPfe/>
-          <CartPfe/>
+          
           
           {/* componenet */}
         </div>
