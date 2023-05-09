@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    /*colors*/
+    --color-1:#2AADDB;
+    --color-2:#85AAB7;
+}
+
 .active{
     background-color: #2AADDB;
     
@@ -12,11 +18,21 @@
     background-size: cover;
     background-blend-mode: multiply;
 }
+.backimage2{
+    background: url('./image/pexels-pavel-danilyuk-7944065.jpg') rgba(42, 173, 219, 0.64);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
 *{
     margin: 0;
     padding: 0;
+/* <<<<<<< HEAD
     box-sizing: border-box;
     
+=======
+    //box-sizing: border-box;
+    //border:1px solid red;
+>>>>>>> ahmed */
 }
 ul{
     list-style: none;
@@ -33,4 +49,21 @@ button{
     padding-left:40px;
     padding-right:40px;
     margin:0 auto ;
+}
+
+
+
+
+/*------Media-----------------------------------------------------------------*/
+@media screen and (max-width:1024px) {
+
+}
+@media screen and (max-width:768px) {
+    
+}
+@media screen and (max-width:576px) {
+    
+}
+@media screen and (max-width:350px) {
+
 }
