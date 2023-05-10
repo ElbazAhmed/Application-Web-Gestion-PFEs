@@ -19,14 +19,14 @@
     background-blend-mode: multiply;
 }
 .backimage2{
-    background: url('./image/pexels-pavel-danilyuk-7944065.jpg') rgba(42, 173, 219, 0.64);
+    background: url('./assets/homeBg.jpg') rgba(42, 173, 219, 0.64);
     background-size: cover;
     background-blend-mode: multiply;
 }
 *{
     margin: 0;
     padding: 0;
-    //box-sizing: border-box;
+    box-sizing: border-box;
     //border:1px solid red;
 }
 ul{
@@ -44,6 +44,9 @@ button{
     padding-left:40px;
     padding-right:40px;
     margin:0 auto ;
+}
+.grid{
+    display:grid;
 }
 
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-link';
-import SideBare from './componenet/SideBare';
-import { Routes,Route,BrowserRouter } from 'react-router-dom';
+import SideBare from './components/SideBare';
+import { Routes,Route,BrowserRouter} from 'react-router-dom';
 import AddPFE from './pages/AddPFE';
 import ListPFE from './pages/ListPFE';
 import MonPFE from './pages/MonPFE';
 import Registre from './registrationPage/Registre';
-import Home from '../src/componenet/Home/Home'
-
+import Home from './components/Home/Home';
+import Connexion from './components/connexion/Connexion'
 
 function App() {
   
@@ -24,10 +24,11 @@ function App() {
 
     <>
     <BrowserRouter>
-	    <Routes>
-		    <Route index patch='/' element={<Home/>} /> 
-		    <Route patch='Registre' element={<Registre/>} /> 
-	    </Routes>
+      <Routes>
+		    <Route index path='/' element={<Home/>} /> 
+		    <Route path='/Registre' element={<Registre/>} /> 
+        <Route path='/Connexion' element={<Connexion/>} />
+      </Routes> 
     </BrowserRouter>
     </>
   );
