@@ -12,7 +12,7 @@ import ResetPassword from './components/resetpassword/ResetPassword';
 import ChangePassword from './components/changePassword/ChangePassword';
 import Contact from './components/contact/Contact';
 import Pfe from './components/pages/Pfe';
-import MainPage from './components/MainPage';
+
 
 
 
@@ -24,15 +24,21 @@ function App() {
 
       <Routes>
 		    <Route index path='/' element={<Home/>} />
-        <Route path='/gestionPfe' element={<MainPage/>}/> 
 		    <Route path='/Registre' element={<Registre/>} /> 
         <Route path='/Connexion' element={<Connexion/>} />
         <Route path='/ResetPassword' element={<ResetPassword/>} />
         <Route path='/ChangePassword' element={<ChangePassword/>} />
+
         <Route path='/Contact' element={<Contact/>} />
+
+        <Route path="/gest/listPfe" element={<ListPFE/>} />
+        <Route path="/gest/addPfe" element={<AddPFE/>} />
+        <Route path="/gest/myPfe" element={<MonPFE/>} />
+        <Route path='/gest/pfe' element={<Pfe/>} />
+
       </Routes> 
 
-      {/* <MainPage/> */}
+      
 
     </BrowserRouter>
 
@@ -44,6 +50,16 @@ function App() {
 	  //   </Routes>
     // </BrowserRouter>
     // </>
+
+    
+    // <SideBare>
+    //     <Routes>
+    //       <Route path="/gest/listPfe" element={<ListPFE/>} />
+    //       <Route path="/gest/addPfe" element={<AddPFE/>} />
+    //       <Route path="/gest/myPfe" element={<MonPFE/>} />
+    //       <Route path='/gest/pfe' element={<Pfe/>} />
+    //     </Routes>
+    // </SideBare>
   );
 }
 

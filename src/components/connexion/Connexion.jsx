@@ -1,6 +1,6 @@
 import React from 'react'
 import image from '../../assets/inpt.png'
-import {Link} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 
 const Connexion = () => {
   return (
@@ -24,7 +24,7 @@ const Connexion = () => {
                             <a>Mot de passe oublié ?</a>
                         </Link>    
                     </div>
-                    <button className='bg-sky-600 text-white p-2 rounded-xl mt-3 px-5'>Connexion</button>
+                    <button className='bg-sky-600 text-white p-2 rounded-xl mt-3 px-5' >Connexion</button>
                     <div className='w-[100%] text-center'>
                         <Link to='/Registre'>
                             <a>Vous n'avez pas de compte ?</a>
