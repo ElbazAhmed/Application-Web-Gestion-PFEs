@@ -1,6 +1,6 @@
 import React from 'react'
-import image from "../image/Logo_inpt.PNG"
-import graduation from '../image/pexels-pavel-danilyuk-7944065.jpg'
+import image from "../assets/inpt.png"
+import graduation from '../assets/pexels-pavel-danilyuk-7944065.jpg'
 
 function Registre() {
   return (

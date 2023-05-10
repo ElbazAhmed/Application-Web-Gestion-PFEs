@@ -1,6 +1,6 @@
 import React from 'react'
 import {FaUserCircle} from "react-icons/fa"
-import Dropdowns from './Dropdowns'
+import Dropdowns from "./Dropdowns"
 
 
 

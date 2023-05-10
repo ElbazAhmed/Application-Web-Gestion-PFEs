@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../componenet/Header'
+import Header from '../Header'
 import {TbSearch} from 'react-icons/tb'
-import CartPfe from '../componenet/CartPfe'
+import CartPfe from '../CartPfe'
 
 
 

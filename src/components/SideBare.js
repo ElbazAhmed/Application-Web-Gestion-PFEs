@@ -1,21 +1,21 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import image from "../image/Logo_inpt.PNG"
+import image from "../assets/inpt.png"
 
 function SideBare({children}) {
     const menuItem=[
         {
-            path:'/',
+            path:'/gestionPfe/listPfe',
             name:'Liste des PFE',
             icon:"",
         },
         {
-            path:'/addPfe',
+            path:'/gestionPfe/addPfe',
             name:'Ajouter un PFE',
             icon:"",
         },
         {
-            path:'/myPfe',
+            path:'/gestionPfe/myPfe',
             name:'Mon PFE',
             icon:"",
         },
