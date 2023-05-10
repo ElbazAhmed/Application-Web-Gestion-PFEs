@@ -30,7 +30,6 @@ function App() {
         <Route path='/ResetPassword' element={<ResetPassword/>} />
         <Route path='/ChangePassword' element={<ChangePassword/>} />
         <Route path='/Contact' element={<Contact/>} />
-        <Route path='/MonEspace' element={<MainPage/>} />
       </Routes> 
 
       {/* <MainPage/> */}
