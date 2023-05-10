@@ -1,8 +1,10 @@
 import React from 'react'
-import Header from '../componenet/Header'
-function Pfe() {
+import Header from '../Header'
+
+function MonPFE() {
   return (
     <div>
+      <div>
         {/* componenet */}
         <Header/>
         {/* componenet */}
@@ -25,12 +27,10 @@ function Pfe() {
                     . Ut enim ad minim veniam, quis nostrum exercitationem ullam  esse cillum dolore eu fugiat nulla pariatur.
                 </p>
             </div>
-            <div className='flex justify-end mr-7 pt-4'>
-                <button className='bg-green-500 w-[20%] rounded-lg h-8'>S’inscrire</button>
-            </div>
         </div>
+    </div>
     </div>
   )
 }
 
-export default Pfe
+export default MonPFE
