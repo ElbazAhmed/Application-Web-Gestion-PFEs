@@ -6,15 +6,18 @@ import AddPFE from './components/pages/AddPFE';
 import ListPFE from './components/pages/ListPFE';
 import MonPFE from './components/pages/MonPFE';
 import Registre from './registrationPage/Registre';
-
 import Home from './components/Home/Home';
 import Connexion from './components/connexion/Connexion'
 import ResetPassword from './components/resetpassword/ResetPassword';
 import ChangePassword from './components/changePassword/ChangePassword';
 
+import Pfe from './pages/Pfe';
+
+
 
 import Pfe from './components/pages/Pfe';
 import MainPage from './components/MainPage';
+
 
 
 
