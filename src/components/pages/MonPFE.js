@@ -1,10 +1,16 @@
 import React from 'react'
 import Header from '../Header'
+import image from "./inpt.png"
+import { NavLink } from 'react-router-dom'
+import SideBare from '../SideBare'
 
 function MonPFE() {
+
   return (
-    <div>
-      <div>
+    <div className='flex'>
+        <SideBare/>
+    
+      <div className='h-full w-full'>
         {/* componenet */}
         <Header/>
         {/* componenet */}

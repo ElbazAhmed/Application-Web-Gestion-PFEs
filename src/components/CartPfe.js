@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 function CartPfe() {
   return (
-    <Link to={'/pfe'}>   
+    <Link to={'/gest/pfe'}>   
         <div className='border-2 border-black w-[95%] rounded-md mx-auto px-3 py-3 my-2 flex flex-row items-center justify-between'>
           <div>
             <h2 className='font-bold'>Problématique</h2>

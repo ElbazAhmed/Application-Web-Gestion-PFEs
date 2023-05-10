@@ -5,23 +5,22 @@ import image from "../assets/inpt.png"
 function SideBare({children}) {
     const menuItem=[
         {
-            path:'/gestionPfe/listPfe',
+            path:'/gest/listPfe',
             name:'Liste des PFE',
             icon:"",
         },
         {
-            path:'/gestionPfe/addPfe',
+            path:'/gest/addPfe',
             name:'Ajouter un PFE',
             icon:"",
         },
         {
-            path:'/gestionPfe/myPfe',
+            path:'/gest/myPfe',
             name:'Mon PFE',
             icon:"",
         },
     ]
   return (
-    <div className='flex '>
         <div className=' lg:w-[18%] w-[30%] h-[100vh]'>
             <div className=''>
                 <img src={image} alt='INPT logo' className='lg:w-[90%] lg:mx-auto w-[80%]' />
@@ -36,8 +35,7 @@ function SideBare({children}) {
             }
             </div>
         </div>
-        <main className='w-full'>{children}</main>
-    </div>
+        
   )
 }
 

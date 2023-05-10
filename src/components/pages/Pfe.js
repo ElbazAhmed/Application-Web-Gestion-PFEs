@@ -1,8 +1,16 @@
 import React from 'react'
 import Header from '../Header'
+import image from "./inpt.png"
+import { NavLink } from 'react-router-dom'
+import SideBare from '../SideBare'
+
 function Pfe() {
+
+
   return (
-    <div>
+    <div className='flex'>
+        <SideBare/>
+    <div className='h-full w-full'>
         {/* componenet */}
         <Header/>
         {/* componenet */}
@@ -29,6 +37,7 @@ function Pfe() {
                 <button className='bg-green-500 w-[20%] rounded-lg h-8'>S’inscrire</button>
             </div>
         </div>
+    </div>
     </div>
   )
 }
