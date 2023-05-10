@@ -24,7 +24,7 @@ const Home = () => {
             <ul className="nav__list flex gap-6 font-semibold">
                 <li className="nav__link"><a href="/">Acceuil</a></li>
                 <li className="nav__link">
-                    <Link to='/MonEspace'>
+                    <Link to='/gestionPfe'>
                         <a>Mon espace</a>
                     </Link>
                 </li>
