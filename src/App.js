@@ -10,7 +10,10 @@ import Home from './components/Home/Home';
 import Connexion from './components/connexion/Connexion'
 import ResetPassword from './components/resetpassword/ResetPassword';
 import ChangePassword from './components/changePassword/ChangePassword';
+<<<<<<< Updated upstream
 import Contact from './components/contact/Contact';
+=======
+>>>>>>> Stashed changes
 import Pfe from './components/pages/Pfe';
 import MainPage from './components/MainPage';
 
