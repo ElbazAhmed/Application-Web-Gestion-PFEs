@@ -2,9 +2,6 @@ import React from 'react'
 import Header from '../Header'
 import {TbSearch} from 'react-icons/tb'
 import CartPfe from '../CartPfe'
-
-import image from "./inpt.png"
-import { NavLink } from 'react-router-dom'
 import SideBare from '../SideBare'
 
 

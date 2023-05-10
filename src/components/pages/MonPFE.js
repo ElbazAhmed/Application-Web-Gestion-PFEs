@@ -1,7 +1,5 @@
 import React from 'react'
 import Header from '../Header'
-import image from "./inpt.png"
-import { NavLink } from 'react-router-dom'
 import SideBare from '../SideBare'
 
 function MonPFE() {
