@@ -3,9 +3,11 @@ import Header from '../Header'
 import {TbSearch} from 'react-icons/tb'
 import CartPfe from '../CartPfe'
 import SideBare from '../SideBare'
+import Listpfe from '../Listpfe'
 
 
-function ListPFE() {
+
+function ListPFE(props) {
  
 
 
@@ -25,28 +27,11 @@ function ListPFE() {
             <TbSearch className='pl-1 absolute justify-end text-sky-400 text-xl'/>
           </div>
         </form>
-        <div className='h-[80%]'>
-          <h2 className='font-medium text-xl'>Vos offres :</h2>
-          <div className='w-[70%] mx-auto border-2 border-black rounded-md h-[30rem] overflow-scroll scrollbar scrollbar-thumb-sky-500 scrollbar-thin'>
-            {/* componenet */}
-            
-            <CartPfe/>
-            <CartPfe/>
-            <CartPfe/>
-            <CartPfe/>
-            <CartPfe/>
-            <CartPfe/>
-            <CartPfe/>
-            <CartPfe/>
-            <CartPfe/>
-            <CartPfe/>
-            <CartPfe/>
-            
-            
-            {/* componenet */}
-          </div>
-        </div>
-            
+
+        
+        {/* compenant */}
+        <Listpfe/>
+        {/* compenant */}    
       </div>
     </div>
   )
