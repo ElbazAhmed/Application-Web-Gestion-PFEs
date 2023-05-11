@@ -5,7 +5,7 @@ import CartPfe from '../CartPfe'
 import SideBare from '../SideBare'
 
 
-function ListPFE() {
+function ListPFE(props) {
  
 
 

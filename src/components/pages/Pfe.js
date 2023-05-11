@@ -7,7 +7,7 @@ function Pfe() {
 
   return (
     <div className='flex'>
-        <SideBare/>
+        <SideBare />
     <div className='h-full w-full'>
         {/* componenet */}
         <Header/>
