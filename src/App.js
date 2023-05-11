@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-link';
-import SideBare from './components/SideBare';
 import { Routes,Route,BrowserRouter} from 'react-router-dom';
 import AddPFE from './components/pages/AddPFE';
 import ListPFE from './components/pages/ListPFE';
@@ -12,7 +10,8 @@ import ResetPassword from './components/resetpassword/ResetPassword';
 import ChangePassword from './components/changePassword/ChangePassword';
 import Contact from './components/contact/Contact';
 import Pfe from './components/pages/Pfe';
-
+import Admin from './components/espaceAdmin/Admin';
+import Enseignant from './components/espaceEnseignant/Enseignant';
 
 
 
@@ -35,6 +34,9 @@ function App() {
         <Route path="/gest/addPfe" element={<AddPFE/>} />
         <Route path="/gest/myPfe" element={<MonPFE/>} />
         <Route path='/gest/pfe' element={<Pfe/>} />
+        <Route path='/EspaceAdmin' element={<Admin/>} />
+        <Route path='/EspaceEnseignant' element={<Enseignant/>} />
+
 
       </Routes> 
 
