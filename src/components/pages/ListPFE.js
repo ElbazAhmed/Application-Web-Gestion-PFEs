@@ -1,17 +1,24 @@
 import React from 'react'
+import Header from '../Header'
 import {TbSearch} from 'react-icons/tb'
 import CartPfe from '../CartPfe'
+import SideBare from '../SideBare'
 
 
-
-function ListPFE(props) {
+function ListPFE() {
  
 
 
 
   return (
     <div className='flex'>
+      <SideBare/>
+    
       <div className='h-full w-full'>
+            
+        {/* componenet */}
+        <Header/>
+        {/* componenet */}
         <form className='flex justify-end mr-7 '>
           <div className='relative flex items-center'>
             <input placeholder='Rechercher' type='text' className='pl-6 border-2 border-black rounded-lg h-8'/>
