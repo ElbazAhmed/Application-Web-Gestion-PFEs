@@ -22,9 +22,17 @@ const Home = () => {
         <div className="nav__logo" ><img src={inpt} alt="inpt logo" /></div>
         <div className="nav__links">
             <ul className="nav__list flex gap-6 font-semibold">
-                <li className="nav__link"><a href="#">Acceuil</a></li>
-                <li className="nav__link"><a href="#">Mon espace</a></li>
-                <li className="nav__link"><a href="#">Contact</a></li>
+                <li className="nav__link"><a href="/">Acceuil</a></li>
+                <li className="nav__link">
+                    <Link to='/gest/pfe'>
+                        <a>Mon espace</a>
+                    </Link>
+                </li>
+                <li className="nav__link">
+                    <Link to='/Contact'>
+                        <a>Contact</a>
+                    </Link>
+                </li>
             </ul>
         </div>
         <div className="nav__buttons flex gap-2">
@@ -44,14 +52,18 @@ const Home = () => {
         </section>
         <section className="Container main__buttons flex items-center py-9 ">
             <button className="main__button m-auto ">Espace etudiant</button>
-            <button className="main__button m-auto">Espace enseignant</button>
-            <button className="main__button m-auto">Espace admin</button>
+            <Link className='m-auto' to='/EspaceEnseignant'>
+            <button className="main__button ">Espace enseignant</button>
+            </Link>
+            <Link className='m-auto' to='/EspaceAdmin'>
+            <button className="main__button ">Espace admin</button>
+            </Link>
         </section>
     </main>
     <footer className='Container max-w-full'>
         <div className="footer__socials h-9 items-center leading-9 flex justify-between py-5">
             <div className="location">
-                <a href="#" target="_blank"><i class='bx bxs-map'></i>Madinat al irfane, Rabat</a>
+                <a href="#" target="_blank"><i class='bx bxs-map'></i>l’Institut National des Postes et Télécommunications (INPT), avenue Allal Al Fassi – Madinat Al Irfane - Rabat.</a>
             </div>
             <div className="social__contact flex gap-2 text-black">
                 <a href="#" target="_blank"><i class='bx bxl-facebook-circle' ></i></a>
