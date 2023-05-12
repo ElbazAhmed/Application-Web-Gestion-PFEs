@@ -2,9 +2,7 @@ import React from 'react'
 import { Routes,Route,BrowserRouter} from 'react-router-dom';
 import Header from '../Header'
 import SideBareAdmin from './SideBareAdmin'
-import Pfe from '../pages/Pfe'
-import ListPFE from '../pages/ListPFE'
-import AddPFE from '../pages/AddPFE'
+
 
 const Admin = () => {
   return (
@@ -17,7 +15,7 @@ const Admin = () => {
 
 
 
-    
+
     </div>
     </div>
   )
