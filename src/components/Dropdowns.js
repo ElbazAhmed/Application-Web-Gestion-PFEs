@@ -2,6 +2,7 @@ import React from 'react'
 import { Menu ,Transition} from '@headlessui/react'
 import { Fragment } from 'react'
 import { ChevronDownIcon} from '@heroicons/react/20/solid'
+import { Link } from 'react-router-dom'
 
 
 function classNames(...classes) {
@@ -54,6 +55,18 @@ function Dropdowns({childrent}) {
                 >
                   Support
                 </a>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <Link to={'/'}
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  accueille
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>

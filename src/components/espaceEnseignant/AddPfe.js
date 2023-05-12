@@ -1,11 +1,10 @@
 import React from 'react'
 import Header from '../Header'
-import SideBare from '../SideBare'
 import Addpfe from '../Addpfe'
+import SideBare from './SideBare'
 
 
-
-function AddPFE() {
+function AddPfe() {
   return (
     <div className='flex'>
       <SideBare/>
@@ -23,4 +22,4 @@ function AddPFE() {
   )
 }
 
-export default AddPFE
+export default AddPfe

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-link';
-import SideBare from './components/SideBare';
 import { Routes,Route,BrowserRouter} from 'react-router-dom';
 import AddPFE from './components/pages/AddPFE';
 import ListPFE from './components/pages/ListPFE';
@@ -15,9 +13,14 @@ import Contact from './components/contact/Contact';
 =======
 >>>>>>> Stashed changes
 import Pfe from './components/pages/Pfe';
-import MainPage from './components/MainPage';
+import Admin from './components/espaceAdmin/Admin';
+import Enseignant from './components/espaceEnseignant/Enseignant';
+import ListEntreprises from './components/espaceAdmin/ListEntreprises';
+import Entreprise from './components/espaceAdmin/Entreprise';
 
-
+import AddPfe from './components/espaceEnseignant/AddPfe';
+import ListePfe from './components/espaceEnseignant/ListePfe';
+import MesPfe from './components/espaceEnseignant/MesPfe';
 
 
 function App() {
@@ -27,16 +30,34 @@ function App() {
 
       <Routes>
 		    <Route index path='/' element={<Home/>} />
-        <Route path='/gestionPfe' element={<MainPage/>}/> 
 		    <Route path='/Registre' element={<Registre/>} /> 
         <Route path='/Connexion' element={<Connexion/>} />
         <Route path='/ResetPassword' element={<ResetPassword/>} />
         <Route path='/ChangePassword' element={<ChangePassword/>} />
+
         <Route path='/Contact' element={<Contact/>} />
-        <Route path='/MonEspace' element={<MainPage/>} />
+
+        <Route path="/gest/listPfe" element={<ListPFE/>} />
+        <Route path="/gest/addPfe" element={<AddPFE/>} />
+        <Route path="/gest/myPfe" element={<MonPFE/>} />
+        <Route path='/gest/pfe' element={<Pfe/>} />
+        {/*Espace Admin*/}
+        <Route path='/EspaceAdmin' element={<Admin/>} />
+        <Route path="/Admin/ListEntreprises" element={<ListEntreprises/>} />
+        <Route path='/Admin/Entreprise' element={<Entreprise/>} />
+        <Route path="/Admin/listPfe" element={<ListPFE/>} />
+        <Route path="/Admin/addPfe" element={<AddPFE/>} />
+        <Route path='/Admin/pfe' element={<Pfe/>} />
+        {/*Espace Enseignant*/}
+        <Route path='/EspaceEnseignant' element={<Enseignant/>} />
+        <Route path='/ense/listPfe' element={<ListePfe/>} />
+        <Route path='/ense/addPfe' element={<AddPfe/>} />
+        <Route path='/ense/myPfeEncadrer' element={<MesPfe/>} />
+
+
       </Routes> 
 
-      {/* <MainPage/> */}
+      
 
     </BrowserRouter>
 
@@ -48,6 +69,16 @@ function App() {
 	  //   </Routes>
     // </BrowserRouter>
     // </>
+
+    
+    // <SideBare>
+    //     <Routes>
+    //       <Route path="/gest/listPfe" element={<ListPFE/>} />
+    //       <Route path="/gest/addPfe" element={<AddPFE/>} />
+    //       <Route path="/gest/myPfe" element={<MonPFE/>} />
+    //       <Route path='/gest/pfe' element={<Pfe/>} />
+    //     </Routes>
+    // </SideBare>
   );
 }
 

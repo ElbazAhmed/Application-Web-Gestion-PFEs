@@ -24,7 +24,7 @@ const Home = () => {
             <ul className="nav__list flex gap-6 font-semibold">
                 <li className="nav__link"><a href="/">Acceuil</a></li>
                 <li className="nav__link">
-                    <Link to='/MonEspace'>
+                    <Link to='/gest/pfe'>
                         <a>Mon espace</a>
                     </Link>
                 </li>
@@ -52,8 +52,12 @@ const Home = () => {
         </section>
         <section className="Container main__buttons flex items-center py-9 ">
             <button className="main__button m-auto ">Espace etudiant</button>
-            <button className="main__button m-auto">Espace enseignant</button>
-            <button className="main__button m-auto">Espace admin</button>
+            <Link className='m-auto' to='/EspaceEnseignant'>
+            <button className="main__button ">Espace enseignant</button>
+            </Link>
+            <Link className='m-auto' to='/EspaceAdmin'>
+            <button className="main__button ">Espace admin</button>
+            </Link>
         </section>
     </main>
     <footer className='Container max-w-full'>
