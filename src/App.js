@@ -52,14 +52,7 @@ function App() {
     </BrowserRouter>
 
     
-    // <SideBare>
-    //     <Routes>
-    //       <Route path="/gest/listPfe" element={<ListPFE/>} />
-    //       <Route path="/gest/addPfe" element={<AddPFE/>} />
-    //       <Route path="/gest/myPfe" element={<MonPFE/>} />
-    //       <Route path='/gest/pfe' element={<Pfe/>} />
-    //     </Routes>
-    // </SideBare>
+
   );
 }
 
