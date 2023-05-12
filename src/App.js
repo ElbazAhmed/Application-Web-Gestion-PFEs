@@ -61,15 +61,6 @@ function App() {
 
     </BrowserRouter>
 
-    // <>
-    // <BrowserRouter>
-	  //   <Routes>
-		//     <Route index patch='/' element={<Home/>} /> 
-		//     <Route patch='Registre' element={<Registre/>} /> 
-	  //   </Routes>
-    // </BrowserRouter>
-    // </>
-
     
     // <SideBare>
     //     <Routes>
