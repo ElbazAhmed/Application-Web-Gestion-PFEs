@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../Header'
 import {TbSearch} from 'react-icons/tb'
-import CartPfe from '../CartPfe'
 import SideBare from '../SideBare'
 import Listpfe from '../Listpfe'
 
@@ -28,7 +27,7 @@ function ListPFE(props) {
           </div>
         </form>
 
-        
+
         {/* compenant */}
         <Listpfe/>
         {/* compenant */}    
