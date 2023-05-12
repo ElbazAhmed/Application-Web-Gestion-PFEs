@@ -1,5 +1,5 @@
 import React from 'react'
-import CartPfe from '../CartPfe'
+import CartPfe from './CartPfe'
 
 const Listpfe = () => {
   return (

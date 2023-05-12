@@ -1,16 +1,10 @@
 import React from 'react'
 import Header from '../Header'
-import {TbSearch} from 'react-icons/tb'
-import SideBare from '../SideBare'
+import { TbSearch } from 'react-icons/tb'
 import Listpfe from '../Listpfe'
+import SideBare from './SideBare'
 
-
-
-function ListPFE(props) {
- 
-
-
-
+function ListePfe() {
   return (
     <div className='flex'>
       <SideBare/>
@@ -28,6 +22,12 @@ function ListPFE(props) {
         </form>
 
 
+    {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
+        {/* khsni nzid le button bach nkhtar les pfe li ghadi n encadrer */}
+        {/* wkhasni nzid tal matching */}
+
+
+
         {/* compenant */}
         <Listpfe/>
         {/* compenant */}    
@@ -36,4 +36,4 @@ function ListPFE(props) {
   )
 }
 
-export default ListPFE
+export default ListePfe

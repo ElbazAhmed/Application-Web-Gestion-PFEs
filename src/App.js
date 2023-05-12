@@ -8,13 +8,19 @@ import Home from './components/Home/Home';
 import Connexion from './components/connexion/Connexion'
 import ResetPassword from './components/resetpassword/ResetPassword';
 import ChangePassword from './components/changePassword/ChangePassword';
+<<<<<<< Updated upstream
 import Contact from './components/contact/Contact';
+=======
+>>>>>>> Stashed changes
 import Pfe from './components/pages/Pfe';
 import Admin from './components/espaceAdmin/Admin';
 import Enseignant from './components/espaceEnseignant/Enseignant';
 import ListEntreprises from './components/espaceAdmin/ListEntreprises';
 import Entreprise from './components/espaceAdmin/Entreprise';
 
+import AddPfe from './components/espaceEnseignant/AddPfe';
+import ListePfe from './components/espaceEnseignant/ListePfe';
+import MesPfe from './components/espaceEnseignant/MesPfe';
 
 
 function App() {
@@ -44,6 +50,10 @@ function App() {
         <Route path='/Admin/pfe' element={<Pfe/>} />
         {/*Espace Enseignant*/}
         <Route path='/EspaceEnseignant' element={<Enseignant/>} />
+        <Route path='/ense/listPfe' element={<ListePfe/>} />
+        <Route path='/ense/addPfe' element={<AddPfe/>} />
+        <Route path='/ense/myPfeEncadrer' element={<MesPfe/>} />
+
 
       </Routes> 
 
