@@ -15,6 +15,9 @@ import Enseignant from './components/espaceEnseignant/Enseignant';
 import ListEntreprises from './components/espaceAdmin/ListEntreprises';
 import Entreprise from './components/espaceAdmin/Entreprise';
 
+import AddPfe from './components/espaceEnseignant/AddPfe';
+import ListePfe from './components/espaceEnseignant/ListePfe';
+import MesPfe from './components/espaceEnseignant/MesPfe';
 
 
 function App() {
@@ -44,6 +47,10 @@ function App() {
         <Route path='/Admin/pfe' element={<Pfe/>} />
         {/*Espace Enseignant*/}
         <Route path='/EspaceEnseignant' element={<Enseignant/>} />
+        <Route path='/ense/listPfe' element={<ListePfe/>} />
+        <Route path='/ense/addPfe' element={<AddPfe/>} />
+        <Route path='/ense/myPfeEncadrer' element={<MesPfe/>} />
+
 
       </Routes> 
 
