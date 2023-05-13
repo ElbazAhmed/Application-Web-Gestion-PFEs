@@ -22,6 +22,11 @@ import AddPfeAdmin from './components/espaceAdmin/AddPfeAdmin';
 import ListPfeAdmin from './components/espaceAdmin/ListPfeAdmin';
 import PfeAdmin from './components/espaceAdmin/PfeAdmin';
 import PfeEncadrer from './components/espaceEnseignant/PfeEncadrer';
+import Layout from './components/cordinateur/Layout';
+import PfeCord from './components/cordinateur/PfeCord';
+import ListPfeCor from './components/cordinateur/ListPfeCor';
+import ListPfeNonValid from './components/cordinateur/ListPfeNonValid';
+import PfeNonValid from './components/cordinateur/PfeNonValid';
 
 function App() {
   
@@ -56,6 +61,16 @@ function App() {
         <Route path='/ense/myPfeEncadrer' element={<MesPfe/>} />
         <Route path='/ense/PfeEnca' element={<PfeEncadrer/>} />
 
+        {/* espace cordinateur */}
+        <Route path='/cord' element={<Layout/>}>
+          <Route path='/cord/pfeCord' element={<PfeCord/>}/>
+          <Route path='/cord/listPfe' element={<ListPfeCor/>}/>
+          <Route path='/cord/listPfeNonValid' element={<ListPfeNonValid/>}/>
+          <Route path='/cord/pfeCordNonVald' element={<PfeNonValid/>}/>
+
+        </Route>
+
+        
 
       </Routes> 
 
