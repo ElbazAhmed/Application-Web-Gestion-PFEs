@@ -21,6 +21,7 @@ import MesPfe from './components/espaceEnseignant/MesPfe';
 import AddPfeAdmin from './components/espaceAdmin/AddPfeAdmin';
 import ListPfeAdmin from './components/espaceAdmin/ListPfeAdmin';
 import PfeAdmin from './components/espaceAdmin/PfeAdmin';
+import PfeEncadrer from './components/espaceEnseignant/PfeEncadrer';
 
 function App() {
   
@@ -53,6 +54,7 @@ function App() {
         <Route path='/ense/listPfe' element={<ListePfe/>} />
         <Route path='/ense/addPfe' element={<AddPfe/>} />
         <Route path='/ense/myPfeEncadrer' element={<MesPfe/>} />
+        <Route path='/ense/PfeEnca' element={<PfeEncadrer/>} />
 
 
       </Routes> 
