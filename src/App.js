@@ -11,7 +11,6 @@ import ChangePassword from './components/changePassword/ChangePassword';
 import Contact from './components/contact/Contact';
 import Pfe from './components/pages/Pfe';
 import Admin from './components/espaceAdmin/Admin';
-import Enseignant from './components/espaceEnseignant/Enseignant';
 import ListEntreprises from './components/espaceAdmin/ListEntreprises';
 import Entreprise from './components/espaceAdmin/Entreprise';
 import AddPfe from './components/espaceEnseignant/AddPfe';
@@ -27,6 +26,10 @@ import PfeCord from './components/cordinateur/PfeCord';
 import ListPfeCor from './components/cordinateur/ListPfeCor';
 import ListPfeNonValid from './components/cordinateur/ListPfeNonValid';
 import PfeNonValid from './components/cordinateur/PfeNonValid';
+import AddPfeCor from './components/cordinateur/AddPfeCor';
+import MonPfeCor from './components/cordinateur/MonPfeCor';
+import ChoixPfe from './components/espaceEnseignant/ChoixPfe';
+import LayoutEnse from './components/espaceEnseignant/LayoutEnse';
 
 function App() {
   
@@ -55,11 +58,13 @@ function App() {
         <Route path='/Admin/pfe' element={<PfeAdmin/>} />
         <Route path="/Admin/PfeAdmin" element={<PfeAdmin/>} />
         {/*Espace Enseignant*/}
-        <Route path='/EspaceEnseignant' element={<Enseignant/>} />
-        <Route path='/ense/listPfe' element={<ListePfe/>} />
-        <Route path='/ense/addPfe' element={<AddPfe/>} />
-        <Route path='/ense/myPfeEncadrer' element={<MesPfe/>} />
-        <Route path='/ense/PfeEnca' element={<PfeEncadrer/>} />
+        <Route path='/ense' element={<LayoutEnse/>}>
+          <Route path='/ense/ChoixPfe' element={<ChoixPfe/>}/>
+          <Route path='/ense/listPfe' element={<ListePfe/>} />
+          <Route path='/ense/addPfe' element={<AddPfe/>} />
+          <Route path='/ense/myPfeEncadrer' element={<MesPfe/>} />
+          <Route path='/ense/PfeEnca' element={<PfeEncadrer/>} />
+        </Route>
 
         {/* espace cordinateur */}
         <Route path='/cord' element={<Layout/>}>
@@ -67,7 +72,8 @@ function App() {
           <Route path='/cord/listPfe' element={<ListPfeCor/>}/>
           <Route path='/cord/listPfeNonValid' element={<ListPfeNonValid/>}/>
           <Route path='/cord/pfeCordNonVald' element={<PfeNonValid/>}/>
-
+          <Route path='/cord/addPfe' element={<AddPfeCor/>}/>
+          <Route path='/cord/myPfe' element={<MonPfeCor/>} />
         </Route>
 
         
