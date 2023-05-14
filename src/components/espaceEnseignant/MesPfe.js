@@ -8,14 +8,7 @@ import ListePfeEnca from './ListePfeEnca'
 
 function MesPfe() {
   return (
-    <div className='flex'>
-      <SideBare/>
-    
-      <div className='h-full w-full'>
-            
-        {/* componenet */}
-        <Header/>
-        {/* componenet */}
+        <>
         <form className='flex justify-end mr-7 '>
           <div className='relative flex items-center'>
             <input placeholder='Rechercher' type='text' className='pl-6 border-2 border-black rounded-lg h-8'/>
@@ -32,9 +25,8 @@ function MesPfe() {
 
         {/* compenant */}
         <ListePfeEnca/>
-        {/* compenant */}    
-      </div>
-    </div>
+        {/* compenant */} 
+        </> 
   )
 }
 
