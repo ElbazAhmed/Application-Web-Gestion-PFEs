@@ -30,6 +30,7 @@ import AddPfeCor from './components/cordinateur/AddPfeCor';
 import MonPfeCor from './components/cordinateur/MonPfeCor';
 import ChoixPfe from './components/espaceEnseignant/ChoixPfe';
 import LayoutEnse from './components/espaceEnseignant/LayoutEnse';
+import PfeEncadrerCord from './components/cordinateur/PfeEncadrerCord';
 
 function App() {
   
@@ -68,6 +69,7 @@ function App() {
 
         {/* espace cordinateur */}
         <Route path='/cord' element={<Layout/>}>
+          <Route path='/cord/PfeCordEncadrer' element={<PfeEncadrerCord/>}/>
           <Route path='/cord/pfeCord' element={<PfeCord/>}/>
           <Route path='/cord/listPfe' element={<ListPfeCor/>}/>
           <Route path='/cord/listPfeNonValid' element={<ListPfeNonValid/>}/>

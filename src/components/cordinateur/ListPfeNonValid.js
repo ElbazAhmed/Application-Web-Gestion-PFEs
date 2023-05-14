@@ -1,5 +1,4 @@
 import React from 'react'
-import CartPfeCor from './CartPfeCor'
 import { TbSearch } from 'react-icons/tb'
 import CartPfeNonval from './CartPfeNonval'
 
