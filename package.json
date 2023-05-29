@@ -1,47 +1,30 @@
 {
-  "name": "front-end",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@headlessui/react": "^1.7.14",
-    "@heroicons/react": "^2.0.18",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0",
-    "react-router-dom": "^6.11.1",
-    "react-router-link": "^2.0.2",
-    "react-scripts": "^5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "application-web-gestion-pfes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElbazAhmed/Application-Web-Gestion-PFEs.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElbazAhmed/Application-Web-Gestion-PFEs/issues"
   },
+  "homepage": "https://github.com/ElbazAhmed/Application-Web-Gestion-PFEs#readme",
   "devDependencies": {
-    "tailwind-scrollbar": "^3.0.0",
-    "tailwindcss": "^3.3.2"
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.1",
+    "nodemon": "^2.0.22"
   }
 }
