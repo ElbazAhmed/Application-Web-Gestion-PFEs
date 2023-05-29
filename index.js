@@ -40,8 +40,30 @@ app.post('/registre',async (req,res)=>{
     }
     
 })
+
+app.post('/login',async (req,res)=>{
+    const {email,password}=req.body
+    const userInfo=await etudiant.findOne({email:email});
+    const passOK=bcrypt.compareSync(password,userInfo.password);
+    if(passOK){
+        const {_id,nom,prenom,filier,email}=userInfo
+        jwt.sign({id:_id,nom,prenom,filier,email},"LFKJEN5dzjdnKDNZLJ526dd",(err,token)=>{
+            if (err) throw err;
+
+            res.cookie('token',token).json(
+                {id:_id,nom,prenom,filier,email}
+            )
+        })
+    }else{
+        res.status(400).json("wrong")
+    }
+})
+
+
 app.get("/",(req,res)=>{
-    res.json("dezdezde")
+    const {token}=req.cookies;
+    console.log(token);
+    res.end()
 })
 
 app.listen(4000)
