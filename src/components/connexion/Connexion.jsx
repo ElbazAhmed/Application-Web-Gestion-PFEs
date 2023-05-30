@@ -2,14 +2,17 @@ import React from 'react'
 import image from '../../assets/inpt.png'
 import {Link, Navigate} from "react-router-dom";
 import { useState } from 'react';
+import {Usercontext} from '../Usercontext'
+import { useContext } from 'react';
 
 const Connexion = () => {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [redirect,setRedirect]=useState(false)
+    const {setUserInfo,userInfo}=useContext(Usercontext)
   
     //il faut décider par rapport au mail dans le cas d'étudiant et par les role (cord,ense)
-    
+
 
     async function login(e){
         e.preventDefault();
@@ -19,17 +22,20 @@ const Connexion = () => {
             headers:{'Content-Type':'application/json'},
             credentials:'include',
         })
-        console.log(res.ok);
         if(res.ok){
-            res.json().then((userInfo)=>{
-                console.log(userInfo);
+            res.json().then((info)=>{
+                setUserInfo(info)
+                setRedirect(true)
             })
         }else{
             alert('not defined')
         }
-
-
     }
+
+    if(redirect===true && userInfo.email.slice(-6)=='ine.ma'){
+        return <Navigate to={'/gest/listPfe'}/>
+    }
+
     return (
     <div className='flex h-[100vh]'>
         <div className='lg:w-[60%] w-[100%] flex flex-col justify-between'>
