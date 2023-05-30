@@ -44,6 +44,10 @@ app.post('/registre',async (req,res)=>{
 app.post('/login',async (req,res)=>{
     const {email,password}=req.body
     const userInfo=await etudiant.findOne({email:email});
+    if(userInfo==null){
+        console.log('ha ana');
+        res.status(400).json('user not found')
+    }
     const passOK=bcrypt.compareSync(password,userInfo.password);
     if(passOK){
         const {_id,nom,prenom,filier,email}=userInfo
@@ -55,7 +59,7 @@ app.post('/login',async (req,res)=>{
             )
         })
     }else{
-        res.status(400).json("wrong")
+        res.status(401).json("wrong")
     }
 })
 
