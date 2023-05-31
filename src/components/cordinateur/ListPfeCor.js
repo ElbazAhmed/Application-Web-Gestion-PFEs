@@ -1,8 +1,12 @@
 import React from 'react'
 import CartPfeCor from './CartPfeCor'
 import { TbSearch } from 'react-icons/tb'
+import { useState } from 'react'
+import { useEffect } from 'react'
+
 
 function ListPfeCor() {
+  
   return (
     <>
         <form className='flex justify-end mr-7 '>

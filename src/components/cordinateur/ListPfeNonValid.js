@@ -1,9 +1,21 @@
-import React from 'react'
+import React ,{useState,useEffect}from 'react'
 import { TbSearch } from 'react-icons/tb'
 import CartPfeNonval from './CartPfeNonval'
 
+
+
 function ListPfeNonValid() {
+  const [data,setData]=useState([])
+
+  useEffect(()=>{
+    fetch('http://localhost:4000/listePfeNonValider').then(resp=>{
+      resp.json().then(pfes=>{
+        setData(pfes)
+      });
+    })
+  },[])
   return (
+
     <>
         <form className='flex justify-end mr-7 '>
           <div className='relative flex items-center'>
@@ -16,18 +28,11 @@ function ListPfeNonValid() {
           <h2 className='font-medium text-xl'>Vos offres :</h2>
           <div className='w-[70%] mx-auto border-2 border-black rounded-md h-[30rem] overflow-scroll scrollbar scrollbar-thumb-sky-500 scrollbar-thin'>
             {/* componenet */}
-            
-            <CartPfeNonval/> 
-            <CartPfeNonval/> 
-            <CartPfeNonval/> 
-            <CartPfeNonval/> 
-            <CartPfeNonval/> 
-            <CartPfeNonval/> 
-            <CartPfeNonval/> 
-            <CartPfeNonval/> 
-            
-            
-            
+            {
+              data.map((item,i)=>{
+                return <CartPfeNonval/> 
+              })
+            }
             {/* componenet */}
           </div>
         </div>
