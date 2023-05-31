@@ -30,59 +30,65 @@ import AddPfeCor from './components/cordinateur/AddPfeCor';
 import MonPfeCor from './components/cordinateur/MonPfeCor';
 import ChoixPfe from './components/espaceEnseignant/ChoixPfe';
 import LayoutEnse from './components/espaceEnseignant/LayoutEnse';
+import PfeEncadrerCord from './components/cordinateur/PfeEncadrerCord';
+
+import {UserContextProvide} from './components/Usercontext'
 
 function App() {
   
   return (
-    <BrowserRouter>
+    <UserContextProvide>
+      <BrowserRouter>
 
-      <Routes>
-		    <Route index path='/' element={<Home/>} />
-		    <Route path='/Registre' element={<Registre/>} /> 
-        <Route path='/Connexion' element={<Connexion/>} />
-        <Route path='/ResetPassword' element={<ResetPassword/>} />
-        <Route path='/ChangePassword' element={<ChangePassword/>} />
+        <Routes>
+		      <Route index path='/' element={<Home/>} />
+		      <Route path='/Registre' element={<Registre/>} /> 
+          <Route path='/Connexion' element={<Connexion/>} />
+          <Route path='/ResetPassword' element={<ResetPassword/>} />
+          <Route path='/ChangePassword' element={<ChangePassword/>} />
 
-        <Route path='/Contact' element={<Contact/>} />
+          <Route path='/Contact' element={<Contact/>} />
 
-        <Route path="/gest/listPfe" element={<ListPFE/>} />
-        <Route path="/gest/addPfe" element={<AddPFE/>} />
-        <Route path="/gest/myPfe" element={<MonPFE/>} />
-        <Route path='/gest/pfe' element={<Pfe/>} />
-        {/*Espace Admin*/}
-        <Route path='/EspaceAdmin' element={<Admin/>} />
-        <Route path="/Admin/ListEntreprises" element={<ListEntreprises/>} />
-        <Route path='/Admin/Entreprise' element={<Entreprise/>} />
-        <Route path="/Admin/listPfe" element={<ListPfeAdmin/>} />
-        <Route path="/Admin/addPfe" element={<AddPfeAdmin/>} />
-        <Route path='/Admin/pfe' element={<PfeAdmin/>} />
-        <Route path="/Admin/PfeAdmin" element={<PfeAdmin/>} />
-        {/*Espace Enseignant*/}
-        <Route path='/ense' element={<LayoutEnse/>}>
-          <Route path='/ense/ChoixPfe' element={<ChoixPfe/>}/>
-          <Route path='/ense/listPfe' element={<ListePfe/>} />
-          <Route path='/ense/addPfe' element={<AddPfe/>} />
-          <Route path='/ense/myPfeEncadrer' element={<MesPfe/>} />
-          <Route path='/ense/PfeEnca' element={<PfeEncadrer/>} />
-        </Route>
+          <Route path="/gest/listPfe" element={<ListPFE/>} />
+          <Route path="/gest/addPfe" element={<AddPFE/>} />
+          <Route path="/gest/myPfe" element={<MonPFE/>} />
+          <Route path='/gest/pfe' element={<Pfe/>} />
+          {/*Espace Admin*/}
+          <Route path='/EspaceAdmin' element={<Admin/>} />
+          <Route path="/Admin/ListEntreprises" element={<ListEntreprises/>} />
+          <Route path='/Admin/Entreprise' element={<Entreprise/>} />
+          <Route path="/Admin/listPfe" element={<ListPfeAdmin/>} />
+          <Route path="/Admin/addPfe" element={<AddPfeAdmin/>} />
+          <Route path='/Admin/pfe' element={<PfeAdmin/>} />
+          <Route path="/Admin/PfeAdmin" element={<PfeAdmin/>} />
+          {/*Espace Enseignant*/}
+          <Route path='/ense' element={<LayoutEnse/>}>
+            <Route path='/ense/ChoixPfe' element={<ChoixPfe/>}/>
+            <Route path='/ense/listPfe' element={<ListePfe/>} />
+            <Route path='/ense/addPfe' element={<AddPfe/>} />
+            <Route path='/ense/myPfeEncadrer' element={<MesPfe/>} />
+            <Route path='/ense/PfeEnca' element={<PfeEncadrer/>} />
+          </Route>
 
-        {/* espace cordinateur */}
-        <Route path='/cord' element={<Layout/>}>
-          <Route path='/cord/pfeCord' element={<PfeCord/>}/>
-          <Route path='/cord/listPfe' element={<ListPfeCor/>}/>
-          <Route path='/cord/listPfeNonValid' element={<ListPfeNonValid/>}/>
-          <Route path='/cord/pfeCordNonVald' element={<PfeNonValid/>}/>
-          <Route path='/cord/addPfe' element={<AddPfeCor/>}/>
-          <Route path='/cord/myPfe' element={<MonPfeCor/>} />
-        </Route>
+          {/* espace cordinateur */}
+          <Route path='/cord' element={<Layout/>}>
+            <Route path='/cord/PfeCordEncadrer' element={<PfeEncadrerCord/>}/>
+            <Route path='/cord/pfeCord' element={<PfeCord/>}/>
+            <Route path='/cord/listPfe' element={<ListPfeCor/>}/>
+            <Route path='/cord/listPfeNonValid' element={<ListPfeNonValid/>}/>
+            <Route path='/cord/pfeCordNonVald' element={<PfeNonValid/>}/>
+            <Route path='/cord/addPfe' element={<AddPfeCor/>}/>
+            <Route path='/cord/myPfe' element={<MonPfeCor/>} />
+          </Route>
 
         
 
-      </Routes> 
+        </Routes> 
 
       
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </UserContextProvide>
 
     
 

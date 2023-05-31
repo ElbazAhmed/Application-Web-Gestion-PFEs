@@ -1,9 +1,42 @@
 import React from 'react'
 import image from '../../assets/inpt.png'
 import {Link, Navigate} from "react-router-dom";
+import { useState } from 'react';
+import {Usercontext} from '../Usercontext'
+import { useContext } from 'react';
 
 const Connexion = () => {
-  return (
+    const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+    const [redirect,setRedirect]=useState(false)
+    const {setUserInfo,userInfo}=useContext(Usercontext)
+  
+    //il faut décider par rapport au mail dans le cas d'étudiant et par les role (cord,ense)
+
+
+    async function login(e){
+        e.preventDefault();
+        const res=await fetch('http://localhost:4000/login',{
+            method:'POST',
+            body:JSON.stringify({email,password}),
+            headers:{'Content-Type':'application/json'},
+            credentials:'include',
+        })
+        if(res.ok){
+            res.json().then((info)=>{
+                setUserInfo(info)
+                setRedirect(true)
+            })
+        }else{
+            alert('not defined')
+        }
+    }
+
+    if(redirect===true && userInfo.email.slice(-6)=='ine.ma'){
+        return <Navigate to={'/gest/listPfe'}/>
+    }
+
+    return (
     <div className='flex h-[100vh]'>
         <div className='lg:w-[60%] w-[100%] flex flex-col justify-between'>
             <div className="inpt__logo">
@@ -14,11 +47,11 @@ const Connexion = () => {
                     <h2 className='text-2xl text-sky-600 font-semibold'>CONNEXION AU COMPTE</h2>
                     <p className='py-3 text-xl font-medium'>Content de te revoir! veuillez saisir vos <br /> coordonnées</p>
                 </div>
-                <form className='flex flex-col justify-center items-center gap-y-3  text-start w-[40%]'>
+                <form className='flex flex-col justify-center items-center gap-y-3  text-start w-[40%]' onSubmit={login}>
                     <div className='w-[100%] font-semibold'><h3>Adresse email :</h3></div>
-                    <input type="email" placeholder='Email' className=' border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]'/>
+                    <input type="email" placeholder='Email' className=' border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]' value={email} onChange={e=>setEmail(e.target.value)}/>
                     <div className='w-[100%] font-semibold'><h3>Mot de passe :</h3></div>
-                    <input type='password' placeholder='Mot de passe' className='border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]'/>
+                    <input type='password' placeholder='Mot de passe' className='border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]' value={password} onChange={e=>setPassword(e.target.value)}/>
                     <div className='w-[100%] text-end'>
                         <Link to='/ResetPassword'>
                             <a>Mot de passe oublié ?</a>
