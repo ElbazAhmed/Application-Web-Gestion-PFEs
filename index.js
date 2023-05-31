@@ -8,7 +8,7 @@ const cookieParser=require('cookie-parser');
 
 //models
 const etudiant=require('./models/etudiant');
-const pfe=require('./models/pfe')
+const PFEs=require('./models/PFEs');
 //bycrypt setting 
 const salt=bcrypt.genSaltSync(10);
 
@@ -69,24 +69,21 @@ app.post("/addpfe",async (req,res)=>{
     const {token}=req.cookies;
     console.log(token);
     
-    const {titre,domainEtude,problematique,entreprise,description}=req.body
+    const {titre,domainEtude,problematique,entreprise,description,idAuthor}=req.body
 
-
-    jwt.verify(token,"LFKJEN5dzjdnKDNZLJ526dd",{},async (err,info)=>{
-        if(err) throw err;
-        console.log(info);
-
-        const pfeDocument=await pfe.create({
+        const pfeDocument=await PFEs.create({
             titre,
             domainEtude,
             problematique,
             entreprise,
             description,
-            author:info.id,
+            author:idAuthor,
         })
-        res.status(200).json(pfeDocument)
-    })
-    
+        res.status(200).json(pfeDocument)  
+})
+
+app.get('/listePfeNonValider',async (req,res)=>{
+    res.json(await PFEs.find({valider:false}).populate('author'))
 })
 
 

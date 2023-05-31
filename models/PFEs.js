@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 
 const {Schema,model}=mongoose;
 
-const pfeSchema=new Schema({
+const PFEsSchema=new Schema({
     titre:{type:String},
     domainEtude :{type:String},
     problematique:{type:String},
@@ -18,7 +18,9 @@ const pfeSchema=new Schema({
         ref:'etudiant',
         default:null
     },
+    valider:{type: Boolean,default: true},
+    encadrer:{type: Boolean,default: false},
 })
 
-const pfe=model('pfe',pfeSchema);
-module.exports=pfe;
+const PFEs=model('PFEs',PFEsSchema);
+module.exports=PFEs;
