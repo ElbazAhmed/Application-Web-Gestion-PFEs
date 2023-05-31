@@ -4,6 +4,7 @@ import {Link, Navigate} from "react-router-dom";
 import { useState } from 'react';
 import {Usercontext} from '../Usercontext'
 import { useContext } from 'react';
+import { useEffect } from 'react';
 
 const Connexion = () => {
     const [email,setEmail]=useState('')
@@ -32,6 +33,21 @@ const Connexion = () => {
         }
     }
 
+    useEffect(()=>{
+        fetch('http://localhost:4000/login',{
+            credentials:"include"
+        }).then(res=>{
+            res.json().then(user=>{
+                if(user=="false"){
+                    return
+                }else{
+                    setUserInfo(user)
+                    setRedirect(true)
+                }
+            })
+        })
+    },[])
+    
 
     if(redirect===true && userInfo.role=='ETUDIANT'){
         return <Navigate to={'/gest/listPfe'}/>
