@@ -62,6 +62,17 @@ app.post('/login',async (req,res)=>{
     }
 })
 
+app.get('/login',(req,res)=>{
+    const {token}=req.cookies;
+    if(token){
+        jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',(err,info)=>{
+            if(err) throw err;
+            res.json(info)
+        })
+    }else{
+        res.json(false)
+    }
+})
 
 app.post("/addpfe",async (req,res)=>{
     
@@ -88,6 +99,7 @@ app.get('/listePfeNonValider',async (req,res)=>{
 app.get('/listePfeValider',async (req,res)=>{
     res.json(await PFEs.find({valider:true,encadrer:false}).populate('author'))
 })
+
 
 app.put('/valider',async (req,res)=>{
     const {id}=req.body
