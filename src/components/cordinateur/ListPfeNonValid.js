@@ -30,7 +30,7 @@ function ListPfeNonValid() {
             {/* componenet */}
             {
               data.map((item,i)=>{
-                return <CartPfeNonval/> 
+                return <CartPfeNonval {...item}/> 
               })
             }
             {/* componenet */}

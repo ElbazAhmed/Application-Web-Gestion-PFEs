@@ -32,10 +32,13 @@ const Connexion = () => {
         }
     }
 
-    if(redirect===true && userInfo.email.slice(-6)=='ine.ma'){
-        return <Navigate to={'/gest/listPfe'}/>
-    }
 
+    if(redirect===true && userInfo.role=='ETUDIANT'){
+        return <Navigate to={'/gest/listPfe'}/>
+    }else if(redirect===true && userInfo.role=='ENSEIGNANT'){
+        return <Navigate to={'/ense/listPfe'}/>
+    }else if(redirect===true && userInfo.role=='COORDINATEUR')
+    return <Navigate to={'/cord/listPfe'}/>
     return (
     <div className='flex h-[100vh]'>
         <div className='lg:w-[60%] w-[100%] flex flex-col justify-between'>
