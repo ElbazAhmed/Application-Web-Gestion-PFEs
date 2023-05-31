@@ -10,15 +10,15 @@ const PFEsSchema=new Schema({
     description:{type:String},
     author:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'etudiant',
+        ref:'user',
         required:true
     },
     encadrent:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'etudiant',
+        ref:'user',
         default:null
     },
-    valider:{type: Boolean,default: true},
+    valider:{type: Boolean,default: false},
     encadrer:{type: Boolean,default: false},
 })
 

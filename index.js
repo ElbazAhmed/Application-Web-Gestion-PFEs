@@ -9,6 +9,7 @@ const cookieParser=require('cookie-parser');
 //models
 const etudiant=require('./models/etudiant');
 const PFEs=require('./models/PFEs');
+const user=require('./models/user');
 //bycrypt setting 
 const salt=bcrypt.genSaltSync(10);
 
@@ -25,16 +26,18 @@ mongoose.connect('mongodb+srv://ilyas:ilyas@cluster0.51lsinj.mongodb.net/?retryW
 //// midlwares
 
 app.post('/registre',async (req,res)=>{
-    const {nom,prenom,filier,email,password}=req.body
+    const {nom,prenom,filier,specialite,email,password,role}=req.body
     try{
-        let etudiantInfo=await etudiant.create({
+        let userInfo=await user.create({
             nom,
             prenom,
             filier,
+            specialite,
             email,
             password:bcrypt.hashSync(password,salt),
+            role,
         });
-        res.json(etudiantInfo);
+        res.json(userInfo);
     }catch(e){
         res.status(400).json(e);
     }
@@ -43,20 +46,16 @@ app.post('/registre',async (req,res)=>{
 
 app.post('/login',async (req,res)=>{
     const {email,password}=req.body
-    const userInfo=await etudiant.findOne({email:email});
+    const userInfo=await user.findOne({email:email});
     if(userInfo==null){
-        console.log('ha ana');
         res.status(400).json('user not found')
     }
     const passOK=bcrypt.compareSync(password,userInfo.password);
     if(passOK){
-        const {_id,nom,prenom,filier,email}=userInfo
-        jwt.sign({id:_id,nom,prenom,filier,email},"LFKJEN5dzjdnKDNZLJ526dd",(err,token)=>{
+        jwt.sign({id:userInfo._id,nom:userInfo.nom,prenom:userInfo.prenom,filier:userInfo.filier,specialite:userInfo.specialite,role:userInfo.role},"LFKJEN5dzjdnKDNZLJ526dd",(err,token)=>{
             if (err) throw err;
 
-            res.cookie('token',token).json(
-                {id:_id,nom,prenom,filier,email}
-            )
+            res.cookie('token',token).json({id:userInfo._id,nom:userInfo.nom,prenom:userInfo.prenom,filier:userInfo.filier,specialite:userInfo.specialite,role:userInfo.role})
         })
     }else{
         res.status(401).json("wrong")
@@ -84,6 +83,27 @@ app.post("/addpfe",async (req,res)=>{
 
 app.get('/listePfeNonValider',async (req,res)=>{
     res.json(await PFEs.find({valider:false}).populate('author'))
+})
+
+app.get('/listePfeValider',async (req,res)=>{
+    res.json(await PFEs.find({valider:true,encadrer:false}).populate('author'))
+})
+
+app.put('/valider',async (req,res)=>{
+    const {id}=req.body
+    console.log(id);
+    const {token}=req.cookies
+    const pfeDoc=await PFEs.findById(id)
+    await pfeDoc.updateOne({valider:true})
+    res.status(200).json(pfeDoc)
+})
+
+app.put('/encadrer',async (req,res)=>{
+    const {id}=req.body
+    const {token}=req.cookies
+    const pfeDoc=await PFEs.findById(id)
+    await pfeDoc.updateOne({encadrer:true})
+    res.status(200).json(pfeDoc)
 })
 
 
