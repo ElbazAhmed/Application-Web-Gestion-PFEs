@@ -110,12 +110,29 @@ app.put('/valider',async (req,res)=>{
     res.status(200).json(pfeDoc)
 })
 
-app.put('/encadrer',async (req,res)=>{
+app.put('/encadrer',(req,res)=>{
     const {id}=req.body
     const {token}=req.cookies
-    const pfeDoc=await PFEs.findById(id)
-    await pfeDoc.updateOne({encadrer:true})
-    res.status(200).json(pfeDoc)
+    if(!token){
+        res.json(false)
+    }
+    jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
+        if(err) throw err;
+        const pfeDoc=await PFEs.findById(id)
+        await pfeDoc.updateOne({encadrent:info.id,encadrer:true})
+        res.status(200).json(pfeDoc)
+    })
+})
+
+app.get('/listencadrer',(req,res)=>{
+    const {token}=req.cookies;
+    console.log(token);
+    jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
+        if(err) throw err;
+        const pfes=await PFEs.find({encadrent:info.id})
+
+        res.json(pfes)
+    })
 })
 
 
