@@ -78,8 +78,8 @@ app.post("/addpfe",async (req,res)=>{
     
     const {token}=req.cookies;
     console.log(token);
-    
-    const {titre,domainEtude,problematique,entreprise,description,idAuthor}=req.body
+    jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
+        const {titre,domainEtude,problematique,entreprise,description}=req.body
 
         const pfeDocument=await PFEs.create({
             titre,
@@ -87,9 +87,11 @@ app.post("/addpfe",async (req,res)=>{
             problematique,
             entreprise,
             description,
-            author:idAuthor,
+            author:info.id,
         })
-        res.status(200).json(pfeDocument)  
+        res.status(200).json(pfeDocument) 
+    })
+    
 })
 
 app.get('/listePfeNonValider',async (req,res)=>{
@@ -135,5 +137,28 @@ app.get('/listencadrer',(req,res)=>{
     })
 })
 
+app.get('/listePfeInscrire',async (req,res)=>{
+    res.json(await PFEs.find({valider:true,encadrer:true}).populate('author'));
+})
+
+app.put('/inscrire',(req,res)=>{
+    const {token}=req.cookies;
+    const {id}=req.body;
+    
+    if(token){
+        jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',async (err,info)=>{
+            if(err) throw err;
+
+            const doc=await PFEs.findById(id)
+            doc.valider=false
+            doc.inscrie=true
+            doc.inscrire=info.id
+            doc.save()
+            res.status(200).json(doc)
+        })
+    }else{
+        res.json(false)
+    }
+})
 
 app.listen(4000)

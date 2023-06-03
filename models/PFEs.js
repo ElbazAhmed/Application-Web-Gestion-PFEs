@@ -18,6 +18,12 @@ const PFEsSchema=new Schema({
         ref:'user',
         default:null
     },
+    inscrire:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user',
+        default:null,
+    },
+    inscrie:{type: Boolean,default: false},
     valider:{type: Boolean,default: false},
     encadrer:{type: Boolean,default: false},
 })
