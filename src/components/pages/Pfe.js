@@ -37,6 +37,14 @@ function Pfe() {
             <div className='flex justify-end mr-7 pt-4'>
                 <button className='bg-green-500 w-[20%] rounded-lg h-8'>S’inscrire</button>
             </div>
+            <div>
+                <h2 className='text-xl font-bold'>auteur :</h2>
+                <p>
+                   <span >Nom </span>: {data.author.nom} {data.author.nom} <br/>
+                   <span>Poste </span>: {data.author.role}
+                </p>
+            </div>
+            
         </div>
     </div>
     </div>
