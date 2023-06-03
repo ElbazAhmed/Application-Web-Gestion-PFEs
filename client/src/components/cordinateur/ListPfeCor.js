@@ -1,3 +1,4 @@
+
 import React from 'react'
 import CartPfeCor from './CartPfeCor'
 import { TbSearch } from 'react-icons/tb'
@@ -6,6 +7,14 @@ import { useEffect } from 'react'
 
 
 function ListPfeCor() {
+  const [data,setData]=useState([])
+  useEffect(()=>{
+    fetch('http://localhost:4000/listePfeValider').then(resp=>{
+      resp.json().then(pfes=>{
+        setData(pfes)
+      });
+    })
+  },[])
   
   return (
     <>
@@ -20,13 +29,15 @@ function ListPfeCor() {
           <h2 className='font-medium text-xl'>Vos offres :</h2>
           <div className='w-[70%] mx-auto border-2 border-black rounded-md h-[30rem] overflow-scroll scrollbar scrollbar-thumb-sky-500 scrollbar-thin'>
             {/* componenet */}
+
+            {
+              data.map((item,i)=>{
+                return <CartPfeCor {...item}/> 
+              })
+            }
             
-            <CartPfeCor/>
-            <CartPfeCor/>
-            <CartPfeCor/>
-            <CartPfeCor/>
-            <CartPfeCor/>
-            <CartPfeCor/>
+            
+            
             
             
             

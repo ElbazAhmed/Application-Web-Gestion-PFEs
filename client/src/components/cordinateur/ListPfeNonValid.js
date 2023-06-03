@@ -1,3 +1,4 @@
+
 import React ,{useState,useEffect}from 'react'
 import { TbSearch } from 'react-icons/tb'
 import CartPfeNonval from './CartPfeNonval'
@@ -30,7 +31,7 @@ function ListPfeNonValid() {
             {/* componenet */}
             {
               data.map((item,i)=>{
-                return <CartPfeNonval/> 
+                return <CartPfeNonval {...item}/> 
               })
             }
             {/* componenet */}

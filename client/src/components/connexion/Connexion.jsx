@@ -4,6 +4,7 @@ import {Link, Navigate} from "react-router-dom";
 import { useState } from 'react';
 import {Usercontext} from '../Usercontext'
 import { useContext } from 'react';
+import { useEffect } from 'react';
 
 const Connexion = () => {
     const [email,setEmail]=useState('')
@@ -32,10 +33,28 @@ const Connexion = () => {
         }
     }
 
-    if(redirect===true && userInfo.email.slice(-6)=='ine.ma'){
-        return <Navigate to={'/gest/listPfe'}/>
-    }
+    useEffect(()=>{
+        fetch('http://localhost:4000/login',{
+            credentials:"include"
+        }).then(res=>{
+            res.json().then(user=>{
+                if(user=="false"){
+                    return
+                }else{
+                    setUserInfo(user)
+                    setRedirect(true)
+                }
+            })
+        })
+    },[])
+    
 
+    if(redirect===true && userInfo.role=='ETUDIANT'){
+        return <Navigate to={'/gest/listPfe'}/>
+    }else if(redirect===true && userInfo.role=='ENSEIGNANT'){
+        return <Navigate to={'/ense/listPfe'}/>
+    }else if(redirect===true && userInfo.role=='COORDINATEUR')
+    return <Navigate to={'/cord/listPfe'}/>
     return (
     <div className='flex h-[100vh]'>
         <div className='lg:w-[60%] w-[100%] flex flex-col justify-between'>
