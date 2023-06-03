@@ -35,7 +35,7 @@ function PfeCord() {
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>Entreprise :</h2>
-                <p className='pl-6'>{data.entreprise} </p>
+                <p className='pl-6'>{data.entreprise}</p>
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>Description :</h2>
