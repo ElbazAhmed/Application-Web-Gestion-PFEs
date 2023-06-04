@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Header'
 import SideBare from '../SideBare'
 import Mypfe from '../Mypfe'
+import MyPfeEtudiat from './MyPfeEtudiat'
 
 function MonPFE() {
 
@@ -16,7 +17,7 @@ function MonPFE() {
         
 
         {/* componenet */}
-        <Mypfe/>
+        <MyPfeEtudiat/>
         {/* componenet */}
     </div>
     </div>
