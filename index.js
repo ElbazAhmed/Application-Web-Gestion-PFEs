@@ -79,8 +79,11 @@ app.post("/addpfe",async (req,res)=>{
     const {token}=req.cookies;
     console.log(token);
     jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
+
+
         const {titre,domainEtude,problematique,entreprise,description}=req.body
 
+        
         const pfeDocument=await PFEs.create({
             titre,
             domainEtude,
@@ -89,6 +92,16 @@ app.post("/addpfe",async (req,res)=>{
             description,
             author:info.id,
         })
+        if(info.role=="ETUDIANT"){
+            pfeDocument.inscrire=info.id;
+            pfeDocument.inscrie=true;
+            pfeDocument.save()
+        }else if(info.role="ENSEIGNANT"){
+            pfeDocument.encadrent=info.id;
+            pfeDocument.encadrer=true;
+            pfeDocument.save()
+        }
+
         res.status(200).json(pfeDocument) 
     })
     
@@ -138,7 +151,16 @@ app.get('/listencadrer',(req,res)=>{
 })
 
 app.get('/listePfeInscrire',async (req,res)=>{
-    res.json(await PFEs.find({valider:true,encadrer:true}).populate('author'));
+    res.json(await PFEs.find({valider:true,encadrer:true,inscrie:false}).populate('author'));
+})
+
+app.get('/monPfeEtudiant',(req,res)=>{
+    const {token}=req.cookies;
+    jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
+        if(err) throw err;
+        const monpfe=await PFEs.find({inscrire:info.id,valider:true})
+        res.json(monpfe)
+    })
 })
 
 app.put('/inscrire',(req,res)=>{
