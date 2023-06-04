@@ -6,7 +6,9 @@ const Listpfe = () => {
   const [data,setData]=useState([]);
   
   useEffect(()=>{
-    fetch('http://localhost:4000/listePfeInscrire').then(res=>{
+    fetch('http://localhost:4000/listePfeInscrire',{
+      credentials:'include',
+    }).then(res=>{
     res.json().then(data=>{
       setData(data)
     })
