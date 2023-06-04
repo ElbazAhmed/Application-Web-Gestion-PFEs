@@ -20,12 +20,13 @@ function Registre() {
           })
         if(res.status===200){
           alert("registration successful")
-        }else{
+        }else {
           alert('user is alredy exist');
         }
     }else{
       alert('password not confirmed')
     }
+    e.target.reset();
 
   }
 
@@ -45,7 +46,7 @@ function Registre() {
                   <input placeholder='Email' className='border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]' value={email} onChange={e=>setEmail(e.target.value)}/>
                   <input placeholder='Mot de passe' type='password' className='border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]' value={password} onChange={e=>setPassword(e.target.value)}/>
                   <input placeholder='Confirmer mot de passe' type='password' className='border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]' value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)}/>
-                  <button className='bg-sky-600 text-white p-2 rounded-xl mt-3'>Créer un compte</button>
+                  <button className='bg-sky-600 text-white p-2 rounded-xl mt-3' type='submit'>Créer un compte</button>
                 </form>
             </div>
         </div>

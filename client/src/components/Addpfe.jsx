@@ -39,7 +39,7 @@ const Addpfe = () => {
                   value={description} onChange={e=>setDescription(e.target.value)}></textarea>
                 <div className='flex gap-x-3 justify-end h-11'>
                     <button className='bg-red-500 w-[20%] rounded-lg'>Annuler</button>
-                    <button className='bg-green-500 w-[20%] rounded-lg'>Ajouter</button>
+                    <button className='bg-green-500 w-[20%] rounded-lg' type='submit'>Ajouter</button>
                 </div>
             </form>
         </div>
