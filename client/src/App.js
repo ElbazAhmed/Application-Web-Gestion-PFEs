@@ -31,6 +31,7 @@ import MonPfeCor from './components/cordinateur/MonPfeCor';
 import ChoixPfe from './components/espaceEnseignant/ChoixPfe';
 import LayoutEnse from './components/espaceEnseignant/LayoutEnse';
 import PfeEncadrerCord from './components/cordinateur/PfeEncadrerCord';
+import AddEntreprise from './components/espaceAdmin/AddEntreprise';
 
 import {UserContextProvide} from './components/Usercontext'
 
@@ -56,6 +57,7 @@ function App() {
           {/*Espace Admin*/}
           <Route path='/EspaceAdmin' element={<Admin/>} />
           <Route path="/Admin/ListEntreprises" element={<ListEntreprises/>} />
+          <Route path="/Admin/AddEntreprise" element={<AddEntreprise/>} />
           <Route path='/Admin/Entreprise' element={<Entreprise/>} />
           <Route path="/Admin/listPfe" element={<ListPfeAdmin/>} />
           <Route path="/Admin/addPfe" element={<AddPfeAdmin/>} />
