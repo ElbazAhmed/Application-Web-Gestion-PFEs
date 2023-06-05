@@ -51,13 +51,13 @@ const Home = () => {
             <div className="home__text text-end">Projet de Fin d’études</div>
         </section>
         <section className="Container main__buttons flex items-center py-9 ">
-            <Link className='m-auto' to={'/gest/listPfe'}>
+            <Link className='m-auto' to={'/Connexion'}>
             <button className="main__button m-auto ">Espace etudiant</button>
             </Link>
-            <Link className='m-auto' to='/ense'>
+            <Link className='m-auto' to='/Connexion'>
             <button className="main__button ">Espace enseignant</button>
             </Link>
-            <Link className='m-auto' to='/EspaceAdmin'>
+            <Link className='m-auto' to='/Connexion'>
             <button className="main__button ">Espace admin</button>
             </Link>
         </section>
