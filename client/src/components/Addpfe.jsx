@@ -1,5 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
+import { useContext } from 'react';
+import {Usercontext} from './Usercontext'
+import { Navigate } from 'react-router-dom';
 
 const Addpfe = () => {
 
@@ -8,17 +11,27 @@ const Addpfe = () => {
   const [problematique,setProblematique]=useState('');
   const [entreprise,setEntreprise]=useState('');
   const [description,setDescription]=useState('');
+  const [rediriger,setRediriger]=useState(false)
 
+  const {setUserInfo,userInfo}=useContext(Usercontext)
+  
   async function nouveauPfe(e){
     e.preventDefault();
-    console.log({titre,domainEtude,problematique,entreprise,description});
     const response=await fetch('http://localhost:4000/addpfe',{
       method:'POST',
       body:JSON.stringify({titre,domainEtude,problematique,entreprise,description}),
       headers:{'Content-Type':'application/json'},
       credentials:'include'
     })
+    setRediriger(response.ok)
     
+  }
+  if(rediriger==true && userInfo.role=='ETUDIANT'){
+    return <Navigate to={'/gest/listPfe'}/>
+  }else if(rediriger==true && userInfo.role=='ENSEIGNANT'){
+    return <Navigate to={'/ense/listPfe'}/>
+  }else if(rediriger==true && userInfo.role=='COORDINATEUR'){
+    return <Navigate to={'/cord/listPfe'}/>
   }
 
 

@@ -14,6 +14,7 @@ function MyPfeEtudiat() {
             })
         })
     },[])
+    console.log(monPfe);
     if(monPfe.length != 0){
         return (
             <>
@@ -34,6 +35,11 @@ function MyPfeEtudiat() {
                         <h2 className='text-2xl font-bold'>Description :</h2>
                         <p className='pl-6'>{monPfe[0].description}</p>
                     </div>
+                </div>
+                <div className='flex flex-col gap-y-4 pt-6'>
+                   <div className='text-xl'> auteur : {monPfe[0].author.nom} {monPfe[0].author.prenom || ""}</div>
+
+                    <div className='text-xl'> encadrent : {monPfe[0].encadrent.nom} {monPfe[0].encadrent.prenom || ""}</div>
                 </div>
             </>
           )

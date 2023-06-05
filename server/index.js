@@ -152,7 +152,7 @@ app.get('/listencadrer',(req,res)=>{
     }
     jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
         if(err) throw err;
-        const pfes=await PFEs.find({valider:true,encadrent:info.id})
+        const pfes=await PFEs.find({valider:true,encadrent:info.id}).populate('inscrire')
 
         res.json(pfes)
     })
@@ -166,7 +166,7 @@ app.get('/monPfeEtudiant',(req,res)=>{
     const {token}=req.cookies;
     jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
         if(err) throw err;
-        const monpfe=await PFEs.find({inscrire:info.id,valider:true})
+        const monpfe=await PFEs.find({inscrire:info.id,valider:true}).populate('author').populate('encadrent')
         res.json(monpfe)
     })
 })

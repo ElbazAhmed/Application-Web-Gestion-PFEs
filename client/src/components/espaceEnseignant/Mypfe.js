@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 function Mypfe() {
     const location=useLocation();
     const data=location.state;
+    console.log(data);
   return (
     <>
         <div className='container mx-auto flex flex-col gap-y-6 pt-11'>
