@@ -22,7 +22,7 @@ app.use(cors({credentials:true,origin: 'http://localhost:3000'}));
 
 //connect database
 
-mongoose.connect('mongodb://localhost:27017',{
+mongoose.connect('mongodb+srv://ilyas:ilyas@cluster0.51lsinj.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     family: 4,
@@ -147,9 +147,12 @@ app.put('/encadrer',(req,res)=>{
 app.get('/listencadrer',(req,res)=>{
     const {token}=req.cookies;
     console.log(token);
+    if(!token){
+        res.status(400).json(false)
+    }
     jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
         if(err) throw err;
-        const pfes=await PFEs.find({encadrent:info.id})
+        const pfes=await PFEs.find({valider:true,encadrent:info.id})
 
         res.json(pfes)
     })
@@ -193,6 +196,8 @@ app.post('/logout',(req,res)=>{
     res.cookie('token','').json("ok")
 })
 
+
+
 //infos entreprises
 app.post("/addEntreprise",async (req,res)=>{
     
@@ -227,6 +232,7 @@ app.get('/Admin/listPfes',async (req,res)=>{
     const pfes = await PFEs.find();
     res.status(200).json(pfes);
 });
+
 
 
 

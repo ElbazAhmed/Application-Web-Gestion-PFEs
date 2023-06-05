@@ -9,7 +9,7 @@ function ListPfeNonValid() {
   const [data,setData]=useState([])
 
   useEffect(()=>{
-    fetch('http://localhost:4000/listePfeNonValider').then(resp=>{
+    fetch('http://localhost:4000/listePfeNonValider',{credentials:'include'}).then(resp=>{
       resp.json().then(pfes=>{
         setData(pfes)
       });

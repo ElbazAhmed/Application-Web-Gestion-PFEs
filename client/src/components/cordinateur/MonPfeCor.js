@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { TbSearch } from 'react-icons/tb'
 import CartPfeCordEncad from './CartPfeCordEncad'
 
 function MonPfeCor() {
+
+  const [data,setData]=useState([])
+  useEffect(()=>{
+    fetch('http://localhost:4000/listencadrer',{credentials:'include'}).then(resp=>{
+      resp.json().then(pfes=>{
+        setData(pfes)
+      });
+    })
+  },[])
+
   return (
     <>
         <form className='flex justify-end mr-7 '>
@@ -17,12 +27,12 @@ function MonPfeCor() {
           <div className='w-[70%] mx-auto border-2 border-black rounded-md h-[30rem] overflow-scroll scrollbar scrollbar-thumb-sky-500 scrollbar-thin'>
             {/* componenet */}
           
-            <CartPfeCordEncad/>
-            <CartPfeCordEncad/>
-            <CartPfeCordEncad/>
-            <CartPfeCordEncad/>
-            <CartPfeCordEncad/>
-            <CartPfeCordEncad/>
+            {
+             data.map((item,i)=>{
+              return <CartPfeCordEncad {...item}/>
+             })
+            }
+            
             
             {/* componenet */}
           </div>

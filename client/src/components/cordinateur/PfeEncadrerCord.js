@@ -1,5 +1,5 @@
 import React from 'react'
-import Mypfe from '../Mypfe'
+import Mypfe from './MyPfe'
 
 function PfeEncadrerCord() {
   return (

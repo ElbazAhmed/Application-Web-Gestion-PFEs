@@ -9,7 +9,7 @@ import { useEffect } from 'react'
 function ListPfeCor() {
   const [data,setData]=useState([])
   useEffect(()=>{
-    fetch('http://localhost:4000/listePfeValider').then(resp=>{
+    fetch('http://localhost:4000/listePfeValider',{credentials:'include'}).then(resp=>{
       resp.json().then(pfes=>{
         setData(pfes)
       });

@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { TbSearch } from 'react-icons/tb'
 import CartPfeChoix from './CartPfeChoix'
 
 function ListePfe() {
+
+  const [data,setData]=useState([])
+  useEffect(()=>{
+    fetch('http://localhost:4000/listePfeValider',{
+      credentials:'include'
+    }).then(resp=>{
+      resp.json().then(pfes=>{
+        setData(pfes)
+      });
+    })
+  },[])
+
+
   return (
     
         <>
@@ -24,14 +37,12 @@ function ListePfe() {
           <div className='w-[70%] mx-auto border-2 border-black rounded-md h-[30rem] overflow-scroll scrollbar scrollbar-thumb-sky-500 scrollbar-thin'>
             {/* componenet */}
             
+            {
+              data.map((item,i)=>{
+                return <CartPfeChoix {...item}/> 
+              })
+            }
             
-            <CartPfeChoix/>
-            <CartPfeChoix/>
-            <CartPfeChoix/>
-            <CartPfeChoix/>
-            <CartPfeChoix/>
-            <CartPfeChoix/>
-            <CartPfeChoix/>
             
             {/* componenet */}
           </div>

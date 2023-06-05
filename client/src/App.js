@@ -14,7 +14,7 @@ import Admin from './components/espaceAdmin/Admin';
 import ListEntreprises from './components/espaceAdmin/ListEntreprises';
 import Entreprise from './components/espaceAdmin/Entreprise';
 import AddPfe from './components/espaceEnseignant/AddPfe';
-import ListePfe from './components/espaceEnseignant/ListePfe';
+import ListePfe from './listePfe/ListePfe';
 import MesPfe from './components/espaceEnseignant/MesPfe';
 //espace Admin Components
 import AddPfeAdmin from './components/espaceAdmin/AddPfeAdmin';
@@ -28,7 +28,7 @@ import ListPfeNonValid from './components/cordinateur/ListPfeNonValid';
 import PfeNonValid from './components/cordinateur/PfeNonValid';
 import AddPfeCor from './components/cordinateur/AddPfeCor';
 import MonPfeCor from './components/cordinateur/MonPfeCor';
-import ChoixPfe from './components/espaceEnseignant/ChoixPfe';
+import ChoixPfe from './listePfe/ChoixPfe';
 import LayoutEnse from './components/espaceEnseignant/LayoutEnse';
 import PfeEncadrerCord from './components/cordinateur/PfeEncadrerCord';
 
