@@ -202,8 +202,6 @@ app.post("/addEntreprise",async (req,res)=>{
 
 
         const {nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero}=req.body
-
-        
         const infosEntreprise=await entreprise.create({
             nom,
             secteur,

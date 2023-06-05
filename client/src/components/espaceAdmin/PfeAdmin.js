@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../Header'
 import SideBareAdmin from './SideBareAdmin'
+import { useLocation } from 'react-router-dom';
 
 function Pfe() {
 
+    const [redirict,setRedirict]=useState(false)
+    
+    const location=useLocation();
+    const data=location.state;
 
   return (
     <div className='flex'>
@@ -15,20 +20,25 @@ function Pfe() {
         <div className='container mx-auto flex flex-col gap-y-6 pt-11'>
             <div>
                 <h2 className='text-2xl font-bold'>Titre :</h2>
-                <p className='pl-6'>Lorem ipsum dolor sit amet, consectetur adipisci elit.</p>
+                <p className='pl-6'>{data.titre}</p>
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>Problématique :</h2>
-                <p className='pl-6'>Lorem ipsum dolor sit amet, consectetur adipisci elit.</p>
+                <p className='pl-6'>{data.problematique}</p>
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>Entreprise :</h2>
-                <p className='pl-6'>Lorem ipsum dolor </p>
+                <p className='pl-6'>{data.entreprise}</p>
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>Description :</h2>
-                <p className='pl-6'>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua
-                    . Ut enim ad minim veniam, quis nostrum exercitationem ullam  esse cillum dolore eu fugiat nulla pariatur.
+                <p className='pl-6'>{data.description}</p>
+            </div>
+            <div>
+                <h2 className='text-xl font-bold'>auteur :</h2>
+                <p>
+                   <span >Nom </span>: {data.author.nom} {data.author.nom} <br/>
+                   <span>Poste </span>: {data.author.role}
                 </p>
             </div>
         </div>
