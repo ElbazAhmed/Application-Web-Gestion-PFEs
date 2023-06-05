@@ -225,6 +225,18 @@ app.get('/Admin/listPfes',async (req,res)=>{
     const pfes = await PFEs.find();
     res.status(200).json(pfes);
 });
+app.put('/Admin/updateEntreprise/:id',async (req, res)=>{
+    const entreprise = await entreprise.findById(req.params.id);
+    if(!entreprise){
+        res.status(404);
+    }
+    const updatedInfos= await Contact.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true}
+    );
+    res.status(200).json(updatedInfos);
+});
 
 
 
