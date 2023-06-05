@@ -10,6 +10,7 @@ const cookieParser=require('cookie-parser');
 const etudiant=require('./models/etudiant');
 const PFEs=require('./models/PFEs');
 const user=require('./models/user');
+const entreprise=require('./models/entreprise');
 //bycrypt setting 
 const salt=bcrypt.genSaltSync(10);
 
@@ -21,7 +22,11 @@ app.use(cors({credentials:true,origin: 'http://localhost:3000'}));
 
 //connect database
 
-mongoose.connect('mongodb+srv://ilyas:ilyas@cluster0.51lsinj.mongodb.net/?retryWrites=true&w=majority').then(e=>console.log('database is connect')).catch(err=>console.log("not connect"))
+mongoose.connect('mongodb://localhost:27017',{
+    useNewUrlParser: true, 
+    useUnifiedTopology: true,
+    family: 4,
+}).then(e=>console.log('database is connect')).catch(err=>console.log("not connect"))
 
 //// midlwares
 
@@ -182,5 +187,42 @@ app.put('/inscrire',(req,res)=>{
         res.json(false)
     }
 })
+
+//infos entreprises
+app.post("/addEntreprise",async (req,res)=>{
+    
+    const {token}=req.cookies;
+    console.log(token);
+    jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
+
+
+        const {nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero}=req.body
+
+        
+        const infosEntreprise=await entreprise.create({
+            nom,
+            secteur,
+            Representant,
+            emailRep,
+            numeroRep,
+            Localisation,
+            email,
+            numero
+        })
+        res.status(200).json(infosEntreprise) 
+    })
+    
+});
+
+app.get('/listeEntreprise',async (req,res)=>{
+    const entreprises = await entreprise.find();
+    res.status(200).json(entreprises);
+});
+app.get('/Admin/listPfes',async (req,res)=>{
+    const pfes = await PFEs.find();
+    res.status(200).json(pfes);
+});
+
+
 
 app.listen(4000)

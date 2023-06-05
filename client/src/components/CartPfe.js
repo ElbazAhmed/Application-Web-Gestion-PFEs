@@ -2,6 +2,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 function CartPfe(props) {
+
+
   return (
     <Link to={'/gest/pfe'} state={props}>   
         <div className='border-2 border-black w-[95%] rounded-md mx-auto px-3 py-3 my-2 flex flex-row items-center justify-between'>

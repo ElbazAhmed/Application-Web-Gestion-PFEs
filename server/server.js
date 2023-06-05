@@ -139,5 +139,10 @@ app.get('/listencadrer',(req,res)=>{
     })
 })
 
+app.get('/listPfe', async (req,res)=>{
+    const pfes = await PFEs.find();
+    res.status(200).json(pfes);
+});
 
-app.listen(4000)
+
+app.listen(4000);

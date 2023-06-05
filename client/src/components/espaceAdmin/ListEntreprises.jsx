@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SideBareAdmin from './SideBareAdmin'
 import CartEntreprise from './CartEntreprise'
 import {TbSearch} from 'react-icons/tb'
 import Header from '../Header'
+import {Link} from "react-router-dom";
 
 const ListEntreprise = () => {
+  const [data,setData]=useState([]);
+  
+  useEffect(()=>{
+    fetch('http://localhost:4000/listeEntreprise',{
+      credentials:'include',
+    }).then(res=>{
+    res.json().then(data=>{
+      setData(data)
+    })
+  })
+  },[])
   return (
     <div className='flex'>
       <SideBareAdmin/>
@@ -20,16 +32,21 @@ const ListEntreprise = () => {
             <TbSearch className='pl-1 absolute justify-end text-sky-400 text-xl'/>
           </div>
         </form>
+        <div className='flex gap-x-3 justify-end h-11'>
+          <Link to='/Admin/AddEntreprise'>
+            <button className='bg-green-500 w-[20%] rounded-lg' type='submit'>Ajouter</button>
+          </Link>
+        </div>
         <div className='h-[80%]'>
-          <h2 className='font-medium text-xl'>Vos offres :</h2>
+          <h2 className='font-medium text-xl'>Entreprises :</h2>
           <div className='w-[70%] mx-auto border-2 border-black rounded-md h-[30rem] overflow-scroll scrollbar scrollbar-thumb-sky-500 scrollbar-thin'>
             {/* componenet */}
-            
-            <CartEntreprise/>
-            <CartEntreprise/>
-            <CartEntreprise/>
-            <CartEntreprise/>
-            <CartEntreprise/>
+            {
+            data.map((item,index)=>{
+              return <CartEntreprise {...item}/>
+            })
+            }
+
 
             
             
