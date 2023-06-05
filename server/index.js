@@ -188,6 +188,11 @@ app.put('/inscrire',(req,res)=>{
     }
 })
 
+
+app.post('/logout',(req,res)=>{
+    res.cookie('token','').json("ok")
+})
+
 //infos entreprises
 app.post("/addEntreprise",async (req,res)=>{
     
@@ -222,6 +227,7 @@ app.get('/Admin/listPfes',async (req,res)=>{
     const pfes = await PFEs.find();
     res.status(200).json(pfes);
 });
+
 
 
 

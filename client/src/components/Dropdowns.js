@@ -1,8 +1,9 @@
+
 import React from 'react'
 import { Menu ,Transition} from '@headlessui/react'
 import { Fragment } from 'react'
 import { ChevronDownIcon} from '@heroicons/react/20/solid'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import {Usercontext} from './Usercontext'
 import { useContext } from 'react'
 
@@ -12,8 +13,20 @@ function classNames(...classes) {
 }
 
 function Dropdowns({childrent}) {
-  const {userInfo}=useContext(Usercontext)
+
+  const {userInfo,setUserInfo}=useContext(Usercontext)
   console.log(userInfo);
+
+  function logout(){
+    fetch('http://localhost:4000/logout',{
+      credentials:"include",
+      method:'POST'
+    })
+    setUserInfo(null)
+  }
+  if(userInfo==null){
+    return <Navigate to={'/'}/>
+  }
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -63,7 +76,7 @@ function Dropdowns({childrent}) {
             <form method="POST" action="#">
               <Menu.Item>
                 {({ active }) => (
-                  <button
+                  <button onClick={logout}
                     type="submit"
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -81,5 +94,6 @@ function Dropdowns({childrent}) {
     </Menu>
   )
 }
+
 
 export default Dropdowns
