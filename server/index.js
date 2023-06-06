@@ -22,7 +22,7 @@ app.use(cors({credentials:true,origin: 'http://localhost:3000'}));
 
 //connect database
 
-mongoose.connect('mongodb+srv://ilyas:ilyas@cluster0.51lsinj.mongodb.net/?retryWrites=true&w=majority',{
+mongoose.connect('mongodb://localhost:27017',{
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     family: 4,
@@ -242,6 +242,9 @@ app.put('/Admin/updateEntreprise/:id',async (req, res)=>{
     );
     res.status(200).json(updatedInfos);
 });
+
+
+
 
 
 

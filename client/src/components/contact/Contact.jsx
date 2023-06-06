@@ -1,8 +1,23 @@
-import React from 'react'
+
 import image from '../../assets/inpt.png'
+import emailjs from '@emailjs/browser';
 import {Link} from "react-router-dom";
+import React, { useRef } from 'react'
 
 const Contact = () => {
+    const form=useRef()
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+    
+        emailjs.sendForm('service_p9dfulq','template_pmsi3nq', form.current, 'SWrUWkHSXzaxla2oW')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+          e.target.reset();
+    };
   return (
     <div className='flex h-[100vh]'>
         <div className='lg:w-[60%] w-[100%] flex flex-col justify-between'>
@@ -14,21 +29,25 @@ const Contact = () => {
                     <div className="contact__info">
                         <h2 className="contact__title text-2xl text-sky-600 font-semibold py-3">Contacter nous</h2>
                     </div>
-                    <form action="" className="contact__form ">
+                    <form action="" className="contact__form " ref={form} onSubmit={sendEmail}>
                         <div className="contact__form-group">
                             <div className="contact__form-div py-1">
-                                <input type="text" className="contact__form-input border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]" name='user__name' placeholder='Votre nom' />
+                                <input type="text" className="contact__form-input border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]" name='name' placeholder='Votre nom' 
+                                  required/>
                             </div>
 
                             <div className="contact__form-div py-1">
-                                <input type="email" className="contact__form-input border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]" name='user__email' placeholder='Votre email' />
+                                <input type="email" className="contact__form-input border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]" name='email' placeholder='Votre email' 
+                                 required/>
                             </div>
                         </div>
                         <div className="contact__form-div py-1">
-                                <input type="text" className="contact__form-input border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]" name='subject' placeholder='Sujet' />
+                                <input type="text" className="contact__form-input border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]" name='subject' placeholder='Sujet' 
+                                 required/>
                         </div>
                         <div className="contact__form-div contact__form-area py-1">
-                            <textarea name="user__message" id="" cols="30" rows="10" className='contact__form-input border-sky-600 border-2 rounded-lg pl-2 w-[100%] h-[90px] resize-none' placeholder='Votre message.....'></textarea>
+                            <textarea name="message" id="" cols="30" rows="10" className='contact__form-input border-sky-600 border-2 rounded-lg pl-2 w-[100%] h-[90px] resize-none' placeholder='Votre message.....'
+                              required></textarea>
                         </div>
                         <button type='submit' className="bg-sky-600 text-white p-2 rounded-xl mt-3 px-5">Envoyer</button>
                     </form>
