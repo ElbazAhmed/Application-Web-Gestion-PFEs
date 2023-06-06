@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Menu ,Transition} from '@headlessui/react'
 import { Fragment } from 'react'
 import { ChevronDownIcon} from '@heroicons/react/20/solid'
@@ -14,8 +14,20 @@ function classNames(...classes) {
 
 function Dropdowns({childrent}) {
 
+
+  const [data,setData]=useState({})
   const {userInfo,setUserInfo}=useContext(Usercontext)
-  console.log(userInfo);
+  
+  useEffect(()=>{
+    fetch('http://localhost:4000/refrech',{credentials:'include'})
+    .then(res=>{
+      res.json().then(info=>{
+        setData(info)
+        console.log(info);
+      })
+    })
+  },[])
+  
 
   function logout(){
     fetch('http://localhost:4000/logout',{
@@ -31,7 +43,7 @@ function Dropdowns({childrent}) {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-           {childrent} {userInfo.nom+' '+userInfo.prenom}
+           {childrent} {data.nom+' '+data.prenom}
           <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
         </Menu.Button>
       </div>

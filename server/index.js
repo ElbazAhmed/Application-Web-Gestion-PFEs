@@ -200,6 +200,19 @@ app.post('/logout',(req,res)=>{
 })
 
 
+app.get('/refrech',(req,res)=>{
+    const {token}=req.cookies;
+    if(token){
+        jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',async (err,info)=>{
+            if(err) throw err;
+
+            res.status(200).json(info)
+        })
+    }else{
+        res.json(false)
+    }
+})
+
 
 //infos entreprises
 app.post("/addEntreprise",async (req,res)=>{
