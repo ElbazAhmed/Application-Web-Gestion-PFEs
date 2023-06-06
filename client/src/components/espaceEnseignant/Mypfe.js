@@ -27,6 +27,19 @@ function Mypfe() {
                 <p className='pl-6'>{data.description}</p>
             </div>
         </div>
+        <div className='pt-10'>
+                <h2 className='text-xl font-bold'>auteur :</h2>
+                <p>
+                   <span >Nom </span>: {data.author.nom || ''} {data.author.prenom || ''} <br/>
+                   <span>Poste </span>: {data.author.role || ''}
+                </p>
+                <h2 className='text-xl font-bold'>etudiant :</h2>
+                <p>
+                   <span >Nom </span>: {data.inscrire ? data.inscrire.nom : ''} { data.inscrire ? data.inscrire.prenom : '' } <br/>
+                   <span>Poste </span>: {data.inscrire ? data.inscrire.role : ''}
+                   
+                </p>
+        </div>
     </>
   )
 }

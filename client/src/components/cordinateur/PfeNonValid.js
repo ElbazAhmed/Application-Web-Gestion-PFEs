@@ -9,7 +9,7 @@ function PfeNonValid() {
 
     const location=useLocation();
     const data=location.state;
-    console.log(data);
+    
     async function valider(e){
         const resp=await fetch('http://localhost:4000/valider',{
             method:'PUT',
@@ -24,6 +24,7 @@ function PfeNonValid() {
     if(redirict){
         return <Navigate to={"/cord/listPfeNonValid"}/>
     }
+    console.log(data);
   return (
     <div className='container mx-auto flex flex-col gap-y-6 pt-11'>
             <div>
@@ -48,13 +49,13 @@ function PfeNonValid() {
             <div>
                 <h2 className='text-xl font-bold'>auteur :</h2>
                 <p>
-                   <span >Nom </span>: {data.author.nom} {data.author.prenom} <br/>
-                   <span>Poste </span>: {data.author.role}
+                   <span >Nom </span>: {data.author.nom || ''} {data.author.prenom || ''} <br/>
+                   <span>Poste </span>: {data.author.role || ''}
                 </p>
                 <h2 className='text-xl font-bold'>etudiant :</h2>
                 <p>
-                   <span >Nom </span>: {data.inscrire.nom || ''} {data.inscrire.prenom || ''} <br/>
-                   <span>Poste </span>: {data.author.role || ''}
+                   <span >Nom </span>: {data.inscrire ? data.inscrire.nom : ''} { data.inscrire ? data.inscrire.prenom : '' } <br/>
+                   <span>Poste </span>: {data.inscrire ? data.inscrire.role : ''}
                    
                 </p>
             </div>

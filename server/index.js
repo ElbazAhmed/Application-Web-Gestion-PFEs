@@ -101,10 +101,13 @@ app.post("/addpfe",async (req,res)=>{
             pfeDocument.inscrire=info.id;
             pfeDocument.inscrie=true;
             pfeDocument.save()
-        }else if(info.role="ENSEIGNANT"){
+        }else if(info.role=="ENSEIGNANT"){
             pfeDocument.encadrent=info.id;
             pfeDocument.encadrer=true;
             pfeDocument.save()
+        }else if(info.role=="COORDINATEUR"){
+            pfeDocument.valider=true;
+            pfeDocument.save();
         }
 
         res.status(200).json(pfeDocument) 
@@ -152,7 +155,7 @@ app.get('/listencadrer',(req,res)=>{
     }
     jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
         if(err) throw err;
-        const pfes=await PFEs.find({valider:true,inscrie:true,encadrent:info.id}).populate('inscrire')
+        const pfes=await PFEs.find({valider:true,inscrie:true,encadrent:info.id}).populate('author').populate('inscrire')
 
         res.json(pfes)
     })
@@ -242,11 +245,6 @@ app.put('/Admin/updateEntreprise/:id',async (req, res)=>{
     );
     res.status(200).json(updatedInfos);
 });
-
-
-
-
-
 
 
 
