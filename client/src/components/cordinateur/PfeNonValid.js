@@ -48,8 +48,14 @@ function PfeNonValid() {
             <div>
                 <h2 className='text-xl font-bold'>auteur :</h2>
                 <p>
-                   <span >Nom </span>: {data.author.nom} {data.author.nom} <br/>
+                   <span >Nom </span>: {data.author.nom} {data.author.prenom} <br/>
                    <span>Poste </span>: {data.author.role}
+                </p>
+                <h2 className='text-xl font-bold'>etudiant :</h2>
+                <p>
+                   <span >Nom </span>: {data.inscrire.nom || ''} {data.inscrire.prenom || ''} <br/>
+                   <span>Poste </span>: {data.author.role || ''}
+                   
                 </p>
             </div>
 

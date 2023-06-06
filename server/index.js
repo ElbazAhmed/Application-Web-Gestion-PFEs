@@ -113,7 +113,7 @@ app.post("/addpfe",async (req,res)=>{
 })
 
 app.get('/listePfeNonValider',async (req,res)=>{
-    res.json(await PFEs.find({valider:false}).populate('author'))
+    res.json(await PFEs.find({valider:false}).populate('author').populate('inscrire'))
 })
 
 app.get('/listePfeValider',async (req,res)=>{
@@ -152,7 +152,7 @@ app.get('/listencadrer',(req,res)=>{
     }
     jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
         if(err) throw err;
-        const pfes=await PFEs.find({valider:true,encadrent:info.id}).populate('inscrire')
+        const pfes=await PFEs.find({valider:true,inscrie:true,encadrent:info.id}).populate('inscrire')
 
         res.json(pfes)
     })
