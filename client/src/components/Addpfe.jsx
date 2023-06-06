@@ -32,6 +32,8 @@ const Addpfe = () => {
     return <Navigate to={'/ense/listPfe'}/>
   }else if(rediriger==true && userInfo.role=='COORDINATEUR'){
     return <Navigate to={'/cord/listPfe'}/>
+  }else if(rediriger==true && userInfo.role=='ADMIN'){
+    return <Navigate to={'/cord/listPfe'}/>
   }
 
 

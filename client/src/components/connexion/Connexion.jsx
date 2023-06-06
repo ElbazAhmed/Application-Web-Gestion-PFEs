@@ -47,14 +47,15 @@ const Connexion = () => {
             })
         })
     },[])
-    
 
     if(redirect===true && userInfo.role=='ETUDIANT'){
         return <Navigate to={'/gest/listPfe'}/>
     }else if(redirect===true && userInfo.role=='ENSEIGNANT'){
         return <Navigate to={'/ense/listPfe'}/>
-    }else if(redirect===true && userInfo.role=='COORDINATEUR')
-    return <Navigate to={'/cord/listPfe'}/>
+    }else if(redirect===true && userInfo.role=='COORDINATEUR'){
+        return <Navigate to={'/cord/listPfe'}/>
+    }else if(redirect===true && userInfo.role=='ADMIN')
+    return <Navigate to={'/Admin/listPfe'}/>
     return (
     <div className='flex h-[100vh]'>
         <div className='lg:w-[60%] w-[100%] flex flex-col justify-between'>
@@ -68,9 +69,9 @@ const Connexion = () => {
                 </div>
                 <form className='flex flex-col justify-center items-center gap-y-3  text-start w-[40%]' onSubmit={login}>
                     <div className='w-[100%] font-semibold'><h3>Adresse email :</h3></div>
-                    <input type="email" placeholder='Email' className=' border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]' value={email} onChange={e=>setEmail(e.target.value)}/>
+                    <input type="email" placeholder='Email' className=' border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]' value={email} onChange={e=>setEmail(e.target.value)} required/>
                     <div className='w-[100%] font-semibold'><h3>Mot de passe :</h3></div>
-                    <input type='password' placeholder='Mot de passe' className='border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]' value={password} onChange={e=>setPassword(e.target.value)}/>
+                    <input type='password' placeholder='Mot de passe' className='border-sky-600 border-2 rounded-lg pl-2 h-9 w-[100%]' value={password} onChange={e=>setPassword(e.target.value)} required/>
                     <div className='w-[100%] text-end'>
                         <Link to='/ResetPassword'>
                             <a>Mot de passe oublié ?</a>
