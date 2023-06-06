@@ -13,9 +13,9 @@ const Home = () => {
             <span><i class='bx bxs-envelope pr-1' ></i>inpt@inpt.ac.ma</span>
         </div>
         <div className="social__contact flex gap-2 text-white">
-        <a href="#" target="_blank"><i class='bx bxl-facebook-circle' ></i></a>
-        <a href="#" target="_blank"><i class='bx bxl-linkedin-square' ></i></a>
-        <a href="#" target="_blank"><i class='bx bxl-twitter'></i></a>
+        <a href="https://www.facebook.com/www.inpt.ac.ma" target="_blank"><i class='bx bxl-facebook-circle' ></i></a>
+        <a href="https://www.linkedin.com/in/inpt-rabat-370378a6/" target="_blank"><i class='bx bxl-linkedin-square' ></i></a>
+        <a href="https://twitter.com/INPTRabat" target="_blank"><i class='bx bxl-twitter'></i></a>
         </div>
     </header>
     <nav className='Container max-w-full flex justify-between items-center bg-white text-black py-4'>
@@ -24,7 +24,7 @@ const Home = () => {
             <ul className="nav__list flex gap-6 font-semibold">
                 <li className="nav__link"><a href="/">Acceuil</a></li>
                 <li className="nav__link">
-                    <Link to='/gest/pfe'>
+                    <Link to='/Connexion'>
                         <a>Mon espace</a>
                     </Link>
                 </li>
@@ -68,9 +68,9 @@ const Home = () => {
                 <a href="#" target="_blank"><i class='bx bxs-map'></i>l’Institut National des Postes et Télécommunications (INPT), avenue Allal Al Fassi – Madinat Al Irfane - Rabat.</a>
             </div>
             <div className="social__contact flex gap-2 text-black">
-                <a href="#" target="_blank"><i class='bx bxl-facebook-circle' ></i></a>
-                <a href="#" target="_blank"><i class='bx bxl-linkedin-square' ></i></a>
-                <a href="#" target="_blank"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.facebook.com/www.inpt.ac.ma" target="_blank"><i class='bx bxl-facebook-circle' ></i></a>
+                <a href="https://www.linkedin.com/in/inpt-rabat-370378a6/" target="_blank"><i class='bx bxl-linkedin-square' ></i></a>
+                <a href="https://twitter.com/INPTRabat" target="_blank"><i class='bx bxl-twitter'></i></a>
             </div>
         </div>
         <div className="footer__copy text-center py-4">&#169; 2023 Institut National des Postes et Télécommunications</div>

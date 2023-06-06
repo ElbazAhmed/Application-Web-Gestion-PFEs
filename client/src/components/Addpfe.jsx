@@ -6,24 +6,28 @@ import { Navigate } from 'react-router-dom';
 
 const Addpfe = () => {
 
+
   const [titre,setTitre]=useState('');
   const [domainEtude,setDomainEtude]=useState('');
   const [problematique,setProblematique]=useState('');
   const [entreprise,setEntreprise]=useState('');
   const [description,setDescription]=useState('');
-  const [rediriger,setRediriger]=useState(false)
+  const [rediriger,setRediriger]=useState(false);
+  const [quitter,setQuitter]=useState(false);
 
   const {setUserInfo,userInfo}=useContext(Usercontext)
   
   async function nouveauPfe(e){
-    e.preventDefault();
-    const response=await fetch('http://localhost:4000/addpfe',{
+    if(quitter==false){
+      e.preventDefault();
+      const response=await fetch('http://localhost:4000/addpfe',{
       method:'POST',
       body:JSON.stringify({titre,domainEtude,problematique,entreprise,description}),
       headers:{'Content-Type':'application/json'},
       credentials:'include'
     })
     setRediriger(response.ok)
+    }
     
   }
   if(rediriger==true && userInfo.role=='ETUDIANT'){
@@ -32,7 +36,19 @@ const Addpfe = () => {
     return <Navigate to={'/ense/listPfe'}/>
   }else if(rediriger==true && userInfo.role=='COORDINATEUR'){
     return <Navigate to={'/cord/listPfe'}/>
+  }else if(rediriger==true && userInfo.role=='ADMIN'){
+    return <Navigate to={'/Admin/listPfe'}/>
   }
+  if(quitter==true && userInfo.role=='ETUDIANT'){
+    return <Navigate to={'/gest/listPfe'}/>
+  }else if(quitter==true && userInfo.role=='ENSEIGNANT'){
+    return <Navigate to={'/ense/listPfe'}/>
+  }else if(quitter==true && userInfo.role=='COORDINATEUR'){
+    return <Navigate to={'/cord/listPfe'}/>
+  }else if(quitter==true && userInfo.role=='ADMIN'){
+    return <Navigate to={'/Admin/listPfe'}/>
+  }
+
 
 
   return (
@@ -51,7 +67,7 @@ const Addpfe = () => {
                 <textarea id="message" rows="4" className="border-black border-2 rounded-lg pl-2" placeholder="Description" 
                   value={description} onChange={e=>setDescription(e.target.value)} required></textarea>
                 <div className='flex gap-x-3 justify-end h-11'>
-                    <button className='bg-red-500 w-[20%] rounded-lg'>Annuler</button>
+                    <button className='bg-red-500 w-[20%] rounded-lg' onClick={()=>setQuitter(true)} >Annuler</button>
                     <button className='bg-green-500 w-[20%] rounded-lg' type='submit'>Ajouter</button>
                 </div>
             </form>
