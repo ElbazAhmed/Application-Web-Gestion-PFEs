@@ -32,9 +32,9 @@ const ListEntreprise = () => {
             <TbSearch className='pl-1 absolute justify-end text-sky-400 text-xl'/>
           </div>
         </form>
-        <div className='flex gap-x-3 justify-end h-11'>
+        <div className='flex gap-x-3  h-11'>
           <Link to='/Admin/AddEntreprise'>
-            <button className='bg-green-500 w-[20%] rounded-lg' type='submit'>Ajouter</button>
+            <button className='bg-green-500 rounded-lg' type='submit'>Ajouter</button>
           </Link>
         </div>
         <div className='h-[80%]'>

@@ -20,6 +20,7 @@ import MesPfe from './components/espaceEnseignant/MesPfe';
 import AddPfeAdmin from './components/espaceAdmin/AddPfeAdmin';
 import ListPfeAdmin from './components/espaceAdmin/ListPfeAdmin';
 import PfeAdmin from './components/espaceAdmin/PfeAdmin';
+import AddEntreprise from './components/espaceAdmin/AddEntreprise';
 import PfeEncadrer from './components/espaceEnseignant/PfeEncadrer';
 import Layout from './components/cordinateur/Layout';
 import PfeCord from './components/cordinateur/PfeCord';
@@ -57,6 +58,7 @@ function App() {
           <Route path='/EspaceAdmin' element={<Admin/>} />
           <Route path="/Admin/ListEntreprises" element={<ListEntreprises/>} />
           <Route path='/Admin/Entreprise' element={<Entreprise/>} />
+          <Route path='/Admin/AddEntreprise' element={<AddEntreprise/>} />
           <Route path="/Admin/listPfe" element={<ListPfeAdmin/>} />
           <Route path="/Admin/addPfe" element={<AddPfeAdmin/>} />
           <Route path='/Admin/pfe' element={<PfeAdmin/>} />
