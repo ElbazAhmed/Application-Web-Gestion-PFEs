@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SideBareAdmin from './SideBareAdmin'
 import Header from '../Header'
+import { useLocation } from 'react-router-dom'
 
 const Entreprise = () => {
+    const [redirict,setRedirict]=useState(false)
+    
+    const location=useLocation();
+    const data=location.state; 
   return (
     <div className='flex'>
         <SideBareAdmin/>
@@ -13,21 +18,29 @@ const Entreprise = () => {
         <div className='container mx-auto flex flex-col gap-y-6 pt-11'>
             <div>
                 <h2 className='text-2xl font-bold'>Nom d'entrepise :</h2>
-                <p className='pl-6'>Lorem ipsum dolor sit amet, consectetur adipisci elit.</p>
+                <p className='pl-6'>{data.nom}</p>
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>Secteur :</h2>
-                <p className='pl-6'>Lorem ipsum dolor sit amet, consectetur adipisci elit.</p>
+                <p className='pl-6'>{data.secteur}</p>
             </div>
             <div>
-                <h2 className='text-2xl font-bold'>Secteur :</h2>
-                <p className='pl-6'>Lorem ipsum dolor </p>
+                <h2 className='text-2xl font-bold'>Representant :</h2>
+                <p className='pl-6'>{data.Representant}</p>
+            </div>
+            <div>
+                <h2 className='text-2xl font-bold'>Contact Representant:</h2>
+                <p className='pl-6'>{data.emailRep}</p>
+                <p className='pl-6'>{data.numeroRep}</p>
+            </div>
+            <div>
+                <h2 className='text-2xl font-bold'>Localisation :</h2>
+                <p className='pl-6'>{data.Localisation}</p>
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>Contact :</h2>
-                <p className='pl-6'>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua
-                    . Ut enim ad minim veniam, quis nostrum exercitationem ullam  esse cillum dolore eu fugiat nulla pariatur.
-                </p>
+                <p className='pl-6'>{data.email}</p>
+                <p className='pl-6'>{data.numero}</p>
             </div>
         </div>
     </div>
