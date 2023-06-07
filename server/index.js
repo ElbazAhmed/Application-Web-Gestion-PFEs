@@ -6,6 +6,10 @@ var bcrypt = require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const cookieParser=require('cookie-parser');
 
+//matcher
+var stringSimilarity = require("string-similarity");
+
+
 //models
 const etudiant=require('./models/etudiant');
 const PFEs=require('./models/PFEs');
@@ -120,7 +124,22 @@ app.get('/listePfeNonValider',async (req,res)=>{
 })
 
 app.get('/listePfeValider',async (req,res)=>{
-    res.json(await PFEs.find({valider:true,encadrer:false}).populate('author'))
+    const {token}=req.cookies;
+    const resulta=await PFEs.find({valider:true,encadrer:false}).populate('author')
+    if(!token){
+        return res.json(false)
+    }else{
+        jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
+            
+            const data=resulta.map((item)=>{
+                var similarity = stringSimilarity.compareTwoStrings(info.specialite, item.domainEtude);
+                let don={...item}
+                don._doc["similaire"] = similarity;
+                return don._doc
+            })
+            res.json(data.sort((a,b) => b.similaire - a.similaire))
+        })
+    }
 })
 
 
