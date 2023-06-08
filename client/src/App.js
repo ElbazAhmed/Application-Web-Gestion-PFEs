@@ -37,6 +37,7 @@ import LayoutEnse from './components/espaceEnseignant/LayoutEnse';
 import PfeEncadrerCord from './components/cordinateur/PfeEncadrerCord';
 
 import {UserContextProvide} from './components/Usercontext'
+import InforPers from './components/infopersonel/InforPers';
 
 function App() {
   
@@ -50,6 +51,8 @@ function App() {
           <Route path='/Connexion' element={<Connexion/>} />
           <Route path='/ResetPassword' element={<ResetPassword/>} />
           <Route path='/ChangePassword' element={<ChangePassword/>} />
+
+          <Route path='/info' element={<InforPers/>} />
 
           <Route path='/Contact' element={<Contact/>} />
 

@@ -26,7 +26,7 @@ app.use(cors({credentials:true,origin: 'http://localhost:3000'}));
 
 //connect database
 
-mongoose.connect('mongodb://localhost:27017',{
+mongoose.connect('mongodb+srv://ilyas:ilyas@cluster0.51lsinj.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     family: 4,
@@ -61,7 +61,7 @@ app.post('/login',async (req,res)=>{
     }
     const passOK=bcrypt.compareSync(password,userInfo.password);
     if(passOK){
-        jwt.sign({id:userInfo._id,nom:userInfo.nom,prenom:userInfo.prenom,filier:userInfo.filier,specialite:userInfo.specialite,role:userInfo.role},"LFKJEN5dzjdnKDNZLJ526dd",(err,token)=>{
+        jwt.sign({id:userInfo._id,nom:userInfo.nom,prenom:userInfo.prenom,email:userInfo.email,filier:userInfo.filier,specialite:userInfo.specialite,role:userInfo.role},"LFKJEN5dzjdnKDNZLJ526dd",(err,token)=>{
             if (err) throw err;
 
             res.cookie('token',token).json({id:userInfo._id,nom:userInfo.nom,prenom:userInfo.prenom,filier:userInfo.filier,specialite:userInfo.specialite,role:userInfo.role})
