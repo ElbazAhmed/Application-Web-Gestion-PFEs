@@ -50,7 +50,7 @@ function ListePfe() {
             {/* componenet */}
             
             {
-              data.map((item,i)=>{
+              filteredData.map((item,i)=>{
                 return <CartPfeChoix {...item}/> 
               })
             }
