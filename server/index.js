@@ -6,6 +6,7 @@ var bcrypt = require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const cookieParser=require('cookie-parser');
 
+
 //matcher
 var stringSimilarity = require("string-similarity");
 
@@ -281,6 +282,9 @@ app.put('/Admin/updateEntreprise/:id',async (req, res)=>{
     );
     res.status(200).json(updatedInfos);
 });
+
+
+
 
 
 

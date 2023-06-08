@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import SideBareAdmin from './SideBareAdmin';
 import Header from '../Header';
 import {Link} from "react-router-dom";
@@ -7,11 +7,12 @@ var generator = require('generate-password-browser');
 const AddUsers = () => {
   const [nom,setNom]=useState('');
   const [prenom,setPrenom]=useState('');
-  const [filier,setFilier]=useState('');
+  const [filier,setFilier]=useState('ASEDS');
   const [specialite,setSpecialite]=useState('');
   const [email,setEmail]=useState('');
-  const [password,setPassword]=useState('**********');
-  const [role,setRole]=useState('');
+  const [password,setPassword]=useState('');
+  const [role,setRole]=useState('ETUDIANT');
+
 
   async function nouveauUser(e){
     e.preventDefault();
@@ -22,6 +23,14 @@ const AddUsers = () => {
       headers:{'Content-Type':'application/json'},
       credentials:'include'
     })
+    //reset form
+    setNom('');
+    setPrenom('');
+    setFilier('ASEDS');
+    setSpecialite('');
+    setEmail('');
+    setPassword('');
+    setRole('ETUDIANT');
  }
  async function psswordGenerator(){
     var password = generator.generate({
@@ -30,6 +39,7 @@ const AddUsers = () => {
     });
     setPassword(password);
  };
+
   return (
     <>
       <div className='flex'>
@@ -48,8 +58,15 @@ const AddUsers = () => {
                 value={nom} onChange={e=>setNom(e.target.value)} required/>
               <input placeholder='Prenom' className='border-black border-2 rounded-lg pl-2 h-9'
                 value={prenom} onChange={e=>setPrenom(e.target.value)} required/>
-              <input placeholder='Filier' className='border-black border-2 rounded-lg pl-2 h-9'
-                value={filier} onChange={e=>setFilier(e.target.value)} required/>
+              <select placeholder='Filier' className='border-black border-2 rounded-lg pl-2 h-9' value={filier} onChange={e=>setFilier(e.target.value)} required>
+                <option value="ASEDS">ASEDS</option>
+                <option value="DATA">DATA</option>
+                <option value="CLOUD">CLOUD</option>
+                <option value="SESNUM">SESNUM</option>
+                <option value="ICCN">ICCN</option>
+                <option value="SMART ICT">SMART ICT</option>
+                <option value="AMOA">AMOA</option>
+              </select>
               <input placeholder='Specialite' className='border-black border-2 rounded-lg pl-2 h-9'
                 value={specialite} onChange={e=>setSpecialite(e.target.value)} required/>
               <input placeholder='Email' className='border-black border-2 rounded-lg pl-2 h-9'
@@ -58,8 +75,12 @@ const AddUsers = () => {
                     <span className=' w-[80%]'>{password}</span>
                     <button type='button' className='bg-sky-600 w-[20%] ' onClick={() => {psswordGenerator()}} >Generer mot de pass</button>
               </p>
-              <input placeholder='Poste' className='border-black border-2 rounded-lg pl-2 h-9'
-                value={role} onChange={e=>setRole(e.target.value)} required/>
+              <select placeholder='Poste' className='border-black border-2 rounded-lg pl-2 h-9' value={role} onChange={e=>setRole(e.target.value)} required>
+                <option value="ETUDIANT">ETUDIANT</option>
+                <option value="ENSEIGNANT">ENSEIGNANT</option>
+                <option value="COORDINATEUR">COORDINATEUR</option>
+                <option value="ADMIN">ADMIN</option>
+              </select>
               <div className='flex gap-x-3 justify-end h-11'>
                   <Link to='/Admin/ListUsers'>
                   <button className='bg-red-500 w-[20%] rounded-lg'>Annuler</button>
