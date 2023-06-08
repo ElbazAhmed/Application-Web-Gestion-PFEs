@@ -10,6 +10,7 @@ function CartPfeChoix(props) {
             <p>{props.entreprise}</p>
           </div>
           <div className='flex'>
+          <h1>{((Math.round(props.similaire * 100)/100).toFixed(2))*100}%</h1>
             <h1 className='text-5xl'>.</h1>
             <h1 className='text-5xl'>.</h1>
             <h1 className='text-5xl'>.</h1>

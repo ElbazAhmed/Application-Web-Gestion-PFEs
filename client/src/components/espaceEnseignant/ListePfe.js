@@ -4,16 +4,28 @@ import CartPfeChoix from './CartPfeChoix'
 
 function ListePfe() {
 
+  const [searchTerm, setSearchTerm] = useState('');
   const [data,setData]=useState([])
+
   useEffect(()=>{
     fetch('http://localhost:4000/listePfeValider',{
       credentials:'include'
     }).then(resp=>{
       resp.json().then(pfes=>{
         setData(pfes)
+        console.log(pfes);
       });
     })
   },[])
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredData = data.filter((item) =>
+    item.problematique.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.entreprise.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
 
   return (
@@ -21,7 +33,7 @@ function ListePfe() {
         <>
         <form className='flex justify-end mr-7 '>
           <div className='relative flex items-center'>
-            <input placeholder='Rechercher' type='text' className='pl-6 border-2 border-black rounded-lg h-8'/>
+            <input placeholder='Rechercher' type='text' value={searchTerm} onChange={e=>setSearchTerm(e.target.value)}  handleSearch={handleSearch} className='pl-6 border-2 border-black rounded-lg h-8'/>
             <TbSearch className='pl-1 absolute justify-end text-sky-400 text-xl'/>
           </div>
         </form>
