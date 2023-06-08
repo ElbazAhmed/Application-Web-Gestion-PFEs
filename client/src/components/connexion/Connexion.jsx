@@ -78,11 +78,6 @@ const Connexion = () => {
                         </Link>    
                     </div>
                     <button className='bg-sky-600 text-white p-2 rounded-xl mt-3 px-5' >Connexion</button>
-                    <div className='w-[100%] text-center'>
-                        <Link to='/Registre'>
-                            <a>Vous n'avez pas de compte ?</a>
-                        </Link>                        
-                    </div>
                 </form>
             </div>
             <div className="log__copy font-small my-1 px-1">&#169; 2023 Institut National des Postes et Télécommunications</div>

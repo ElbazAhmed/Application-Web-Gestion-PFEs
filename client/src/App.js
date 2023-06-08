@@ -11,8 +11,6 @@ import ChangePassword from './components/changePassword/ChangePassword';
 import Contact from './components/contact/Contact';
 import Pfe from './components/pages/Pfe';
 import Admin from './components/espaceAdmin/Admin';
-import ListEntreprises from './components/espaceAdmin/ListEntreprises';
-import Entreprise from './components/espaceAdmin/Entreprise';
 import AddPfe from './components/espaceEnseignant/AddPfe';
 import ListePfe from './components/espaceEnseignant/ListePfe';
 import MesPfe from './components/espaceEnseignant/MesPfe';
@@ -20,6 +18,11 @@ import MesPfe from './components/espaceEnseignant/MesPfe';
 import AddPfeAdmin from './components/espaceAdmin/AddPfeAdmin';
 import ListPfeAdmin from './components/espaceAdmin/ListPfeAdmin';
 import PfeAdmin from './components/espaceAdmin/PfeAdmin';
+import ListEntreprises from './components/espaceAdmin/ListEntreprises';
+import Entreprise from './components/espaceAdmin/Entreprise';
+import AddUsers from './components/espaceAdmin/AddUsers';
+import ListUsers from './components/espaceAdmin/ListUsers';
+import User from './components/espaceAdmin/User';
 import AddEntreprise from './components/espaceAdmin/AddEntreprise';
 import PfeEncadrer from './components/espaceEnseignant/PfeEncadrer';
 import Layout from './components/cordinateur/Layout';
@@ -59,6 +62,9 @@ function App() {
           <Route path="/Admin/ListEntreprises" element={<ListEntreprises/>} />
           <Route path='/Admin/Entreprise' element={<Entreprise/>} />
           <Route path='/Admin/AddEntreprise' element={<AddEntreprise/>} />
+          <Route path="/Admin/ListUsers" element={<ListUsers/>} />
+          <Route path='/Admin/User' element={<User/>} />
+          <Route path='/Admin/AddUsers' element={<AddUsers/>} />
           <Route path="/Admin/listPfe" element={<ListPfeAdmin/>} />
           <Route path="/Admin/addPfe" element={<AddPfeAdmin/>} />
           <Route path='/Admin/pfe' element={<PfeAdmin/>} />

@@ -34,7 +34,7 @@ mongoose.connect('mongodb://localhost:27017',{
 
 //// midlwares
 
-app.post('/registre',async (req,res)=>{
+app.post('/addUser',async (req,res)=>{
     const {nom,prenom,filier,specialite,email,password,role}=req.body
     try{
         let userInfo=await user.create({
@@ -260,6 +260,10 @@ app.post("/addEntreprise",async (req,res)=>{
 app.get('/listeEntreprise',async (req,res)=>{
     const entreprises = await entreprise.find();
     res.status(200).json(entreprises);
+});
+app.get('/listUsers',async (req,res)=>{
+    const users = await user.find();
+    res.status(200).json(users);
 });
 app.get('/Admin/listPfes',async (req,res)=>{
     const pfes = await PFEs.find();
