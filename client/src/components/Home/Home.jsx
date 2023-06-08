@@ -39,10 +39,6 @@ const Home = () => {
             <Link to='/Connexion'>
             <button className="nav__button">Connexion</button>
             </Link>
-            <Link to='/Registre'>
-            <button className="nav__button insc">Créer un compte</button>
-            </Link>
-
         </div>
     </nav>
     <main className="Container max-w-full backimage2 text-white">

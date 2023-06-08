@@ -19,6 +19,11 @@ const SideBareAdmin = () => {
             name:'Entreprises',
             icon:"",
         },
+        {
+            path:'/Admin/ListUsers',
+            name:'Utilisateurs',
+            icon:"",
+        },
     ]
   return (
     <div className=' lg:w-[18%] w-[30%] h-[100vh] '>
