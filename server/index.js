@@ -5,6 +5,8 @@ const mongoose=require('mongoose');
 var bcrypt = require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const cookieParser=require('cookie-parser');
+//nodemailer
+const nodemailer = require('nodemailer');
 
 //matcher
 var stringSimilarity = require("string-similarity");
@@ -281,6 +283,37 @@ app.put('/Admin/updateEntreprise/:id',async (req, res)=>{
     );
     res.status(200).json(updatedInfos);
 });
+//nodemailer
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'secondinfamous73@gmail.com',
+      pass: 'great123456A'
+    }
+});
+app.post('/send-email', (req, res) => {
+    const { recipient, subject, body } = req.body;
+  
+    const mailOptions = {
+      from: 'secondinfamous73@gmail.com',
+      to: recipient,
+      subject,
+      text: body
+    };
+  
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Error sending email');
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.send('Email sent successfully');
+      }
+    });
+});
+  
+
+
 
 
 
