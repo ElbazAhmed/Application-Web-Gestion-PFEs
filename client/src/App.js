@@ -24,6 +24,7 @@ import AddUsers from './components/espaceAdmin/AddUsers';
 import ListUsers from './components/espaceAdmin/ListUsers';
 import User from './components/espaceAdmin/User';
 import AddEntreprise from './components/espaceAdmin/AddEntreprise';
+import UpdateEntreprise from './components/espaceAdmin/UpdateEntreprise';
 import PfeEncadrer from './components/espaceEnseignant/PfeEncadrer';
 import Layout from './components/cordinateur/Layout';
 import PfeCord from './components/cordinateur/PfeCord';
@@ -65,6 +66,7 @@ function App() {
           <Route path="/Admin/ListEntreprises" element={<ListEntreprises/>} />
           <Route path='/Admin/Entreprise' element={<Entreprise/>} />
           <Route path='/Admin/AddEntreprise' element={<AddEntreprise/>} />
+          <Route path='/Admin/UpdateEntreprise' element={<UpdateEntreprise/>} />
           <Route path="/Admin/ListUsers" element={<ListUsers/>} />
           <Route path='/Admin/User' element={<User/>} />
           <Route path='/Admin/AddUsers' element={<AddUsers/>} />
