@@ -12,7 +12,6 @@ var stringSimilarity = require("string-similarity");
 
 
 //models
-const etudiant=require('./models/etudiant');
 const PFEs=require('./models/PFEs');
 const user=require('./models/user');
 const entreprise=require('./models/entreprise');
