@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SideBareAdmin from './SideBareAdmin';
 import Header from '../Header';
 import {Link, useLocation} from "react-router-dom";
@@ -8,7 +8,7 @@ const UpdateEntreprise = () => {
     
     const location=useLocation();
     const data=location.state; 
-
+  
   const [nom,setNom]=useState(data.nom);
   const [secteur,setSecteur]=useState(data.secteur);
   const [Representant,setRepresentant]=useState(data.Representant);
@@ -19,8 +19,9 @@ const UpdateEntreprise = () => {
   const [numero,setNumero]=useState(data.numero);
 
   async function UpdateEntreprise(e){
+    e.preventDefault();
     console.log({nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero});
-    useEffect(() => {
+    
         // PUT request using fetch with set headers
         const requestOptions = {
           method: 'PUT',
@@ -30,7 +31,7 @@ const UpdateEntreprise = () => {
         fetch(`http://localhost:4000/Admin/updateEntreprise/${data._id}`, requestOptions)
           .then(response => response.json())
           .then(data => console.log(data));
-    }, []);
+   
     
   }
   return (
@@ -67,7 +68,7 @@ const UpdateEntreprise = () => {
                   <Link to='/Admin/ListEntreprises'>
                   <button className='bg-red-500 w-[20%] rounded-lg'>Annuler</button>
                   </Link>
-                  <button className='bg-green-500 w-[20%] rounded-lg' type='submit'>Modifier</button>
+                  <button className='bg-green-500 w-[20%] rounded-lg'>Modifier</button>
               </div>
           </form>
           </div>  
