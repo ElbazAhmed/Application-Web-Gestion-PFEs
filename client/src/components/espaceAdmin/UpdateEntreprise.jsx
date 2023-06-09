@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SideBareAdmin from './SideBareAdmin';
 import Header from '../Header';
 import {Link, useLocation} from "react-router-dom";
@@ -9,6 +9,7 @@ const UpdateEntreprise = () => {
     const location=useLocation();
     const data=location.state; 
 
+  const [_id,setId]=useState(data._id);
   const [nom,setNom]=useState(data.nom);
   const [secteur,setSecteur]=useState(data.secteur);
   const [Representant,setRepresentant]=useState(data.Representant);
@@ -17,22 +18,21 @@ const UpdateEntreprise = () => {
   const [Localisation,setLocalisation]=useState(data.Localisation);
   const [email,setEmail]=useState(data.email);
   const [numero,setNumero]=useState(data.numero);
+  async function updateEntreprise(e){
+    e.preventDefault();
+    console.log({_id,nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero});
+    const response=await fetch(`http://localhost:4000/Admin/updateEntreprise/${_id}`,{
+      method:'PUT',
+      body:JSON.stringify({_id,nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero}),
+      headers:{'Content-Type':'application/json'},
+      credentials:'include'
+    })
+    const updatedInfos = await response.json();
+ }
+ 
 
-  async function UpdateEntreprise(e){
-    console.log({nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero});
-    useEffect(() => {
-        // PUT request using fetch with set headers
-        const requestOptions = {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero})
-        };
-        fetch(`http://localhost:4000/Admin/updateEntreprise/${data._id}`, requestOptions)
-          .then(response => response.json())
-          .then(data => console.log(data));
-    }, []);
-    
-  }
+
+
   return (
     <>
       <div className='flex'>
@@ -46,7 +46,7 @@ const UpdateEntreprise = () => {
           {/* compenant */}
           <div className='h-[90%] flex flex-col justify-around items-center'>
           <h2 className='text-xl font-bold'>Ajouter une entreprise :</h2>
-          <form className='flex flex-col justify-center gap-y-4 w-[75%]' onSubmit={UpdateEntreprise}>
+          <form className='flex flex-col justify-center gap-y-4 w-[75%]' onSubmit={updateEntreprise}>
               <input placeholder='nom' className='border-black border-2 rounded-lg pl-2 h-9'
                 value={nom} onChange={e=>setNom(e.target.value)} required/>
               <input placeholder='Secteur' className='border-black border-2 rounded-lg pl-2 h-9'
