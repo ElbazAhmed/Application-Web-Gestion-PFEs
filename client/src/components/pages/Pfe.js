@@ -54,7 +54,7 @@ function Pfe() {
             <div>
                 <h2 className='text-xl font-bold'>auteur :</h2>
                 <p>
-                   <span >Nom </span>: {data.author.nom} {data.author.nom} <br/>
+                   <span >Nom </span>: {data.author.nom} {data.author.prenom} <br/>
                    <span>Poste </span>: {data.author.role}
                 </p>
             </div>

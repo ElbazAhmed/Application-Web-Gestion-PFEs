@@ -26,7 +26,7 @@ app.use(cors({credentials:true,origin: 'http://localhost:3000'}));
 
 //connect database
 
-mongoose.connect('mongodb+srv://ilyas:ilyas@cluster0.51lsinj.mongodb.net/?retryWrites=true&w=majority',{
+mongoose.connect('mongodb://localhost:27017',{
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     family: 4,
@@ -269,17 +269,27 @@ app.get('/Admin/listPfes',async (req,res)=>{
     const pfes = await PFEs.find();
     res.status(200).json(pfes);
 });
-app.put('/Admin/updateEntreprise/:id',async (req, res)=>{
-    const entreprise = await entreprise.findById(req.params.id);
-    if(!entreprise){
-        res.status(404);
-    }
-    const updatedInfos= await Contact.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {new: true}
-    );
-    res.status(200).json(updatedInfos);
+
+
+app.put("/Admin/updateEntreprise/:_id",async (req,res)=>{
+    
+    const {token}=req.cookies;
+    console.log(token);
+    jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
+
+
+        const entreprise = await entreprise.findById(req.params._id);
+        if(!entreprise){
+            res.status(404);
+        }
+        const updatedInfos= await entreprise.findByIdAndUpdate(
+            req.params._id,
+            req.body,
+            {new: true}
+        );
+        res.json(updatedInfos);
+    })
+    
 });
 
 

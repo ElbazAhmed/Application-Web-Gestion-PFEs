@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SideBareAdmin from './SideBareAdmin'
 import Header from '../Header'
-import { useLocation } from 'react-router-dom'
+import {Link, useLocation } from 'react-router-dom'
 
 const Entreprise = () => {
     const [redirict,setRedirict]=useState(false)
@@ -41,6 +41,11 @@ const Entreprise = () => {
                 <h2 className='text-2xl font-bold'>Contact :</h2>
                 <p className='pl-6'>{data.email}</p>
                 <p className='pl-6'>{data.numero}</p>
+            </div>
+            <div>
+                <Link to='/Admin/UpdateEntreprise' state={data}>
+                    <button className='bg-green-500 rounded-lg'>Modifier</button>
+                </Link>
             </div>
         </div>
     </div>
