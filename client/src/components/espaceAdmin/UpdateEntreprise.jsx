@@ -51,7 +51,7 @@ const UpdateEntreprise = () => {
           {/* compenant */}
           <div className='h-[90%] flex flex-col justify-around items-center'>
           <h2 className='text-xl font-bold'>Ajouter une entreprise :</h2>
-          <form className='flex flex-col justify-center gap-y-4 w-[75%]' onSubmit={updateEntreprise}>
+          <form className='flex flex-col justify-center gap-y-4 w-[75%]' onSubmit={UpdateEntreprise}>
               <input placeholder='nom' className='border-black border-2 rounded-lg pl-2 h-9'
                 value={nom} onChange={e=>setNom(e.target.value)} required/>
               <input placeholder='Secteur' className='border-black border-2 rounded-lg pl-2 h-9'
