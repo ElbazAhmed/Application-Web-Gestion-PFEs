@@ -8,7 +8,6 @@ const UpdateEntreprise = () => {
     
     const location=useLocation();
     const data=location.state; 
-  
   const [nom,setNom]=useState(data.nom);
   const [secteur,setSecteur]=useState(data.secteur);
   const [Representant,setRepresentant]=useState(data.Representant);
@@ -17,6 +16,10 @@ const UpdateEntreprise = () => {
   const [Localisation,setLocalisation]=useState(data.Localisation);
   const [email,setEmail]=useState(data.email);
   const [numero,setNumero]=useState(data.numero);
+
+ 
+
+
 
   async function UpdateEntreprise(e){
     e.preventDefault();
@@ -34,6 +37,7 @@ const UpdateEntreprise = () => {
    
     
   }
+
   return (
     <>
       <div className='flex'>
@@ -47,7 +51,7 @@ const UpdateEntreprise = () => {
           {/* compenant */}
           <div className='h-[90%] flex flex-col justify-around items-center'>
           <h2 className='text-xl font-bold'>Ajouter une entreprise :</h2>
-          <form className='flex flex-col justify-center gap-y-4 w-[75%]' onSubmit={UpdateEntreprise}>
+          <form className='flex flex-col justify-center gap-y-4 w-[75%]' onSubmit={updateEntreprise}>
               <input placeholder='nom' className='border-black border-2 rounded-lg pl-2 h-9'
                 value={nom} onChange={e=>setNom(e.target.value)} required/>
               <input placeholder='Secteur' className='border-black border-2 rounded-lg pl-2 h-9'

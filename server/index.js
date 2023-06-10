@@ -271,7 +271,7 @@ app.get('/Admin/listPfes',async (req,res)=>{
 });
 
 
-app.put("/Admin/updateEntreprise/:_id",async (req,res)=>{
+app.put("/Admin/updateEntreprise/:id",async (req,res)=>{
     
     const {token}=req.cookies;
     const body=req.body;

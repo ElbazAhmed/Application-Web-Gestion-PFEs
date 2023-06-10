@@ -7,10 +7,10 @@ const Home = () => {
   return (
     <>
     <header className='Container max-w-full h-9 items-center leading-8 bg-black text-white flex justify-between'>
-        <div className="Contact flex gap-1">
-            <span><i class='bx bxs-phone pr-1'></i>+212000000000</span>
+        <div className="Contact flex gap-1 ">
+            <span><i class='bx bxs-phone pr-1'></i>+212538002700</span>
             <span>|</span>
-            <span><i class='bx bxs-envelope pr-1' ></i>inpt@inpt.ac.ma</span>
+            <span><i class='bx bxs-envelope pr-1' ></i>contact@inpt.ac.ma</span>
         </div>
         <div className="social__contact flex gap-2 text-white">
         <a href="https://www.facebook.com/www.inpt.ac.ma" target="_blank"><i class='bx bxl-facebook-circle' ></i></a>
