@@ -8,7 +8,6 @@ const UpdateEntreprise = () => {
     
     const location=useLocation();
     const data=location.state; 
-  
   const [nom,setNom]=useState(data.nom);
   const [secteur,setSecteur]=useState(data.secteur);
   const [Representant,setRepresentant]=useState(data.Representant);
@@ -17,6 +16,10 @@ const UpdateEntreprise = () => {
   const [Localisation,setLocalisation]=useState(data.Localisation);
   const [email,setEmail]=useState(data.email);
   const [numero,setNumero]=useState(data.numero);
+
+ 
+
+
 
   async function UpdateEntreprise(e){
     e.preventDefault();
@@ -34,7 +37,7 @@ const UpdateEntreprise = () => {
    
     
   }
-  //s
+
   return (
     <>
       <div className='flex'>
