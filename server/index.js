@@ -26,7 +26,7 @@ app.use(cors({credentials:true,origin: 'http://localhost:3000'}));
 
 //connect database
 
-mongoose.connect('mongodb://localhost:27017',{
+mongoose.connect('mongodb+srv://ilyas:ilyas@cluster0.51lsinj.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     family: 4,
@@ -274,20 +274,27 @@ app.get('/Admin/listPfes',async (req,res)=>{
 app.put("/Admin/updateEntreprise/:id",async (req,res)=>{
     
     const {token}=req.cookies;
-    console.log(token);
+    const body=req.body;
+
     jwt.verify(token,'LFKJEN5dzjdnKDNZLJ526dd',{},async (err,info)=>{
 
 
-        const entreprise = await entreprise.findById(req.params._id);
+        const entre = await entreprise.findById(req.params._id);
         if(!entreprise){
             res.status(404);
         }
-        const updatedInfos= await entreprise.findByIdAndUpdate(
-            req.params._id,
-            req.body,
-            {new: true}
-        );
-        res.json(updatedInfos);
+        entre.nom=body.nom
+        entre.secteur=body.secteur
+        entre.Representant=body.Representant
+        entre.emailRep=body.emailRep
+        entre.numeroRep=body.numeroRep        
+        entre.Localisation=body.Localisation
+        entre.email=body.email
+        entre.numero=body.numero
+
+        entre.save()
+        
+        res.json(entre);
     })
     
 });

@@ -8,8 +8,6 @@ const UpdateEntreprise = () => {
     
     const location=useLocation();
     const data=location.state; 
-
-  const [_id,setId]=useState(data._id);
   const [nom,setNom]=useState(data.nom);
   const [secteur,setSecteur]=useState(data.secteur);
   const [Representant,setRepresentant]=useState(data.Representant);
@@ -18,20 +16,27 @@ const UpdateEntreprise = () => {
   const [Localisation,setLocalisation]=useState(data.Localisation);
   const [email,setEmail]=useState(data.email);
   const [numero,setNumero]=useState(data.numero);
-  async function updateEntreprise(e){
-    e.preventDefault();
-    console.log({_id,nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero});
-    const response=await fetch(`http://localhost:4000/Admin/updateEntreprise/${_id}`,{
-      method:'PUT',
-      body:JSON.stringify({_id,nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero}),
-      headers:{'Content-Type':'application/json'},
-      credentials:'include'
-    })
-    const updatedInfos = await response.json();
- }
+
  
 
 
+
+  async function UpdateEntreprise(e){
+    e.preventDefault();
+    console.log({nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero});
+    
+        // PUT request using fetch with set headers
+        const requestOptions = {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({nom,secteur,Representant,emailRep,numeroRep,Localisation,email,numero})
+        };
+        fetch(`http://localhost:4000/Admin/updateEntreprise/${data._id}`, requestOptions)
+          .then(response => response.json())
+          .then(data => console.log(data));
+   
+    
+  }
 
   return (
     <>
@@ -67,7 +72,7 @@ const UpdateEntreprise = () => {
                   <Link to='/Admin/ListEntreprises'>
                   <button className='bg-red-500 w-[20%] rounded-lg'>Annuler</button>
                   </Link>
-                  <button className='bg-green-500 w-[20%] rounded-lg' type='submit'>Modifier</button>
+                  <button className='bg-green-500 w-[20%] rounded-lg'>Modifier</button>
               </div>
           </form>
           </div>  
