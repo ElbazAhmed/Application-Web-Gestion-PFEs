@@ -10,6 +10,7 @@ function Pfe() {
     const location=useLocation();
     const data=location.state;
 
+    console.log(data);
   return (
     <div className='flex'>
         <SideBareAdmin/>
@@ -17,7 +18,7 @@ function Pfe() {
         {/* componenet */}
         <Header/>
         {/* componenet */}
-        <div className='container mx-auto flex flex-col gap-y-6 pt-11'>
+        <div className='container mx-auto flex flex-col gap-y-6 pt-11 pl-5'>
             <div>
                 <h2 className='text-2xl font-bold'>Titre :</h2>
                 <p className='pl-6'>{data.titre}</p>

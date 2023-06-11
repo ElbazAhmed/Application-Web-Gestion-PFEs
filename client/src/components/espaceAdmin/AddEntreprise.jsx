@@ -23,6 +23,9 @@ const AddEntreprise = () => {
       headers:{'Content-Type':'application/json'},
       credentials:'include'
     })
+    if(response.ok){
+      alert(`${nom} est ajouté avec succès`)
+    }
     
   }
   return (
@@ -37,7 +40,7 @@ const AddEntreprise = () => {
 
           {/* compenant */}
           <div className='h-[90%] flex flex-col justify-around items-center'>
-          <h2 className='text-xl font-bold'>Ajouter une entreprise :</h2>
+          <h2 className='text-xl font-bold py-5'>Ajouter une entreprise :</h2>
           <form className='flex flex-col justify-center gap-y-4 w-[75%]' onSubmit={nouveauEntreprise}>
               <input placeholder='nom' className='border-black border-2 rounded-lg pl-2 h-9'
                 value={nom} onChange={e=>setNom(e.target.value)} required/>
@@ -56,8 +59,8 @@ const AddEntreprise = () => {
               <input placeholder='numero' className='border-black border-2 rounded-lg pl-2 h-9'
                 value={numero} onChange={e=>setNumero(e.target.value)} required/>
               <div className='flex gap-x-3 justify-end h-11'>
-                  <Link to='/Admin/ListEntreprises'>
-                  <button className='bg-red-500 w-[20%] rounded-lg'>Annuler</button>
+                  <Link to='/Admin/ListEntreprises' className='bg-red-500 w-[20%] rounded-lg flex justify-center '>
+                  <button className=''>Annuler</button>
                   </Link>
                   <button className='bg-green-500 w-[20%] rounded-lg' type='submit'>Ajouter</button>
               </div>

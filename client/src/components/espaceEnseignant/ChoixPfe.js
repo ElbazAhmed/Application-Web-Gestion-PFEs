@@ -22,10 +22,14 @@ function ChoixPfe() {
     }
 
   return (
-        <div className='container mx-auto flex flex-col gap-y-6 pt-11'>
+        <div className='container mx-auto flex flex-col gap-y-6 pl-6 pt-11'>
             <div>
                 <h2 className='text-2xl font-bold'>Titre :</h2>
                 <p className='pl-6'>{data.titre}</p>
+            </div>
+            <div>
+                <h2 className='text-2xl font-bold'>Domain d'étude :</h2>
+                <p className='pl-6'>{data.domainEtude}</p>
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>Problématique :</h2>
@@ -40,7 +44,7 @@ function ChoixPfe() {
                 <p className='pl-6'>{data.description}</p>
             </div>
             <div className='flex justify-end mr-7 pt-4'>
-                <button className='bg-green-500 w-[20%] rounded-lg h-8' onClick={encadrer}>S’inscrire</button>
+                <button className='bg-green-500 w-[20%] rounded-lg h-8' onClick={encadrer}>Encadrer</button>
             </div>
         </div>
   )

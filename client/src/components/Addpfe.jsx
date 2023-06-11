@@ -54,7 +54,7 @@ const Addpfe = () => {
   return (
     <>
         <div className='h-[90%] flex flex-col justify-around items-center'>
-            <h2 className='text-xl font-bold'>Ajouter un sujet de PFE :</h2>
+            <h2 className='text-xl font-bold pb-4 pt-4'>Ajouter un sujet de PFE :</h2>
             <form className='flex flex-col justify-center gap-y-4 w-[75%]' onSubmit={nouveauPfe}>
                 <input placeholder='Titre' className='border-black border-2 rounded-lg pl-2 h-9'
                   value={titre} onChange={e=>setTitre(e.target.value)} required/>
