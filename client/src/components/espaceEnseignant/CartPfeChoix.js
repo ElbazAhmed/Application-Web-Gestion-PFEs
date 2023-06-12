@@ -8,12 +8,12 @@ function CartPfeChoix(props) {
           <div>
             <h2 className='font-bold'>{props.problematique}</h2>
             <p>{props.entreprise}</p>
+            <h1>{((Math.round(props.similaire * 100)/100).toFixed(1))*100}%</h1>
           </div>
-          <div className='flex'>
-          <h1>{((Math.round(props.similaire * 100)/100).toFixed(2))*100}%</h1>
-            <h1 className='text-5xl'>.</h1>
-            <h1 className='text-5xl'>.</h1>
-            <h1 className='text-5xl'>.</h1>
+          <div className='flex flex-col gap-1 pr-2'>
+            <div className='w-[5px] h-[5px] rounded-full bg-black'></div>
+            <div className='w-[5px] h-[5px] rounded-full bg-black'></div>
+            <div className='w-[5px] h-[5px] rounded-full bg-black'></div> 
           </div>
         </div>
     </Link>

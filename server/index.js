@@ -26,7 +26,9 @@ app.use(cors({credentials:true,origin: 'http://localhost:3000'}));
 
 //connect database
 
-mongoose.connect('mongodb://localhost:27017/',{
+
+mongoose.connect('mongodb://localhost:27017/test',{
+
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     family: 4,
@@ -266,7 +268,7 @@ app.get('/listUsers',async (req,res)=>{
     res.status(200).json(users);
 });
 app.get('/Admin/listPfes',async (req,res)=>{
-    const pfes = await PFEs.find();
+    const pfes = await PFEs.find().populate('author');
     res.status(200).json(pfes);
 });
 

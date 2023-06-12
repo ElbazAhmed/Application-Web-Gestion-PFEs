@@ -31,6 +31,7 @@ const AddUsers = () => {
     setEmail('');
     setPassword('');
     setRole('ETUDIANT');
+    alert('utilisateur ajouter avec succés')
  }
  async function psswordGenerator(){
     var password = generator.generate({
@@ -52,7 +53,7 @@ const AddUsers = () => {
 
           {/* compenant */}
           <div className='h-[90%] flex flex-col justify-around items-center'>
-          <h2 className='text-xl font-bold'>Ajouter un utilisateur :</h2>
+          <h2 className='text-xl font-bold py-4'>Ajouter un utilisateur :</h2>
           <form className='flex flex-col justify-center gap-y-4 w-[75%]' onSubmit={nouveauUser}>
               <input placeholder='Nom' className='border-black border-2 rounded-lg pl-2 h-9'
                 value={nom} onChange={e=>setNom(e.target.value)} required/>
@@ -71,9 +72,9 @@ const AddUsers = () => {
                 value={specialite} onChange={e=>setSpecialite(e.target.value)} required/>
               <input placeholder='Email' className='border-black border-2 rounded-lg pl-2 h-9'
                 value={email} onChange={e=>setEmail(e.target.value)} required/>
-              <p placeholder='Password' className='border-black border-2 rounded-lg pl-2 h-9 flex justify-between'>
+              <p placeholder='Password' className='border-black border-2 rounded-lg pl-2 h-9 flex justify-between '>
                     <span className=' w-[80%]'>{password}</span>
-                    <button type='button' className='bg-sky-600 w-[20%] ' onClick={() => {psswordGenerator()}} >Generer mot de pass</button>
+                    <button type='button' className='bg-sky-600 w-[20%]' onClick={() => {psswordGenerator()}} >Generer mot de pass</button>
               </p>
               <select placeholder='Poste' className='border-black border-2 rounded-lg pl-2 h-9' value={role} onChange={e=>setRole(e.target.value)} required>
                 <option value="ETUDIANT">ETUDIANT</option>
@@ -82,8 +83,8 @@ const AddUsers = () => {
                 <option value="ADMIN">ADMIN</option>
               </select>
               <div className='flex gap-x-3 justify-end h-11'>
-                  <Link to='/Admin/ListUsers'>
-                  <button className='bg-red-500 w-[20%] rounded-lg'>Annuler</button>
+                  <Link to='/Admin/ListUsers' className='bg-red-500 w-[20%] rounded-lg flex justify-center' >
+                  <button >Annuler</button>
                   </Link>
                   <button className='bg-green-500 w-[20%] rounded-lg' type='submit'>Ajouter</button>
               </div>

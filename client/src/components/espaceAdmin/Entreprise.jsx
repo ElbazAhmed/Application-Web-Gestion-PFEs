@@ -15,7 +15,7 @@ const Entreprise = () => {
         {/* componenet */}
         <Header/>
         {/* componenet */}
-        <div className='container mx-auto flex flex-col gap-y-6 pt-11'>
+        <div className='container mx-auto flex flex-col gap-y-6 pl-6 pt-11'>
             <div>
                 <h2 className='text-2xl font-bold'>Nom d'entrepise :</h2>
                 <p className='pl-6'>{data.nom}</p>
@@ -42,9 +42,9 @@ const Entreprise = () => {
                 <p className='pl-6'>{data.email}</p>
                 <p className='pl-6'>{data.numero}</p>
             </div>
-            <div>
-                <Link to='/Admin/UpdateEntreprise' state={data}>
-                    <button className='bg-green-500 rounded-lg'>Modifier</button>
+            <div className='flex justify-end pr-24'>
+                <Link to='/Admin/UpdateEntreprise' className='bg-green-500 rounded-lg px-3 py-1' state={data}>
+                    <button className=''>Modifier</button>
                 </Link>
             </div>
         </div>

@@ -31,7 +31,7 @@ function Pfe() {
         {/* componenet */}
         <Header/>
         {/* componenet */}
-        <div className='container mx-auto flex flex-col gap-y-6 pt-11'>
+        <div className='container mx-auto flex flex-col gap-y-6 pt-11 pl-6'>
             <div>
                 <h2 className='text-2xl font-bold'>Titre :</h2>
                 <p className='pl-6'>{data.titre}</p>
@@ -39,6 +39,10 @@ function Pfe() {
             <div>
                 <h2 className='text-2xl font-bold'>Problématique :</h2>
                 <p className='pl-6'>{data.problematique}</p>
+            </div>
+            <div>
+                <h2 className='text-2xl font-bold'>Domain d'étude :</h2>
+                <p className='pl-6'>{data.domainEtude}</p>
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>Entreprise :</h2>

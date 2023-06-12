@@ -7,7 +7,7 @@ function SideBare() {
     const menuItem=[
         {
             path:'/ense/listPfe',
-            name:'Liste des PFE',
+            name:'Liste des PFEs',
             icon:"",
         },
         {
