@@ -30,7 +30,7 @@ mongoose.connect('mongodb://localhost:27017/',{
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     family: 4,
-}).then(e=>console.log('database is connect')).catch(err=>console.log("not connect"))
+}).then(e=>console.log('database is connect')).catch(err=>console.log('Failed to connect'))
 
 //// midlwares
 
