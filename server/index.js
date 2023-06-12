@@ -26,11 +26,13 @@ app.use(cors({credentials:true,origin: 'http://localhost:3000'}));
 
 //connect database
 
+
 mongoose.connect('mongodb://localhost:27017/test',{
+
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     family: 4,
-}).then(e=>console.log('database is connect')).catch(err=>console.log("not connect"))
+}).then(e=>console.log('database is connect')).catch(err=>console.log('Failed to connect'))
 
 //// midlwares
 
@@ -271,7 +273,7 @@ app.get('/Admin/listPfes',async (req,res)=>{
 });
 
 
-app.put("/Admin/updateEntreprise/:_id",async (req,res)=>{
+app.put("/Admin/updateEntreprise/:id",async (req,res)=>{
     
     const {token}=req.cookies;
     const body=req.body;
