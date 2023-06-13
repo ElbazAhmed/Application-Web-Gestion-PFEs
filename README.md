@@ -35,9 +35,9 @@ Ajouter un utilisateur (Espace admin)
 ----------------------------
 <img src="client/src/assets/front_screen/addUser.jpg" />
 
-Information d'un utilisateur (Espaceadmin) *
+Information d'un utilisateur (Espaceadmin) 
 ----------------------------
-<img src="client/src/assets/front_screen/addUser.jpg" />
+<img src="client/src/assets/front_screen/infoUser.jpg" />
 
 Espace coordinateur
 ----------------------------
